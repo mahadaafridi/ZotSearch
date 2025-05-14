@@ -190,8 +190,9 @@ class InvertedIndex:
         #change if too small/big
 
         #CHANGE FOR ACTUAL IMPLEMENTATION
-        if size_in_bytes > 1000: #100 mb 
+        if size_in_bytes > 50_000_000: #50 mb 
             self.dump_partial_index()
+            print("DUMPED PARTIAL")
 
     def merge_partial_indexes(self):
         """Merges all partial indexes from files into the final index."""
@@ -224,12 +225,12 @@ so its stored in disk or sumn like that. Repeat this until all files accounted f
 """
 if __name__ == '__main__':
     inverted_index_instance = InvertedIndex()
-    folder_dir = "small_dev"
+    folder_dir = "DEV"
     for folder in os.listdir(folder_dir):
         folder_path = os.path.join(folder_dir, folder)  
-        
         for file in os.listdir(folder_path):
             file_path = os.path.join(folder_path, file)
+            print(file_path)
             inverted_index_instance.process_document(file_path)
             inverted_index_instance.check_and_dump()
     
