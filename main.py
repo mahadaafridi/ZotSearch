@@ -1,3 +1,4 @@
+import sys
 import json
 import os
 import re
@@ -11,6 +12,12 @@ class InvertedIndex:
         self.DOC_ID_COUNT = 1 # Keeps track of docid number
         self.DOC_ID = dict() # Maps docid to URL
         self.partial_index = dict()
+        self.partial_index_file_count = 0 #counts the number of partial index files in total
+
+        self.final_index = dict()
+        #makes the folder where we store the partial index
+        if not os.path.exists("partial_index"):
+            os.makedirs("partial_index")
 
     def tokenize(self, content: str) -> List[str]:
         """
@@ -160,6 +167,53 @@ class InvertedIndex:
             print(f"    docid: {value[0].docid}")
             print(f"    frequency: {value[0].tf}")
             print(f"    fields: {value[0].fields}\n")
+    
+# These functions will be for merging and dumping partial index
+    def dump_partial_index(self):
+        """dumps partial index and resets it"""
+        file_name = f'partial_index/{self.partial_index_file_count}.json'
+
+        # i did this because you can't json dumps a class that we created (the Postings class)
+        # pretty inefficient, so i may consider just getting rid of the posting class so we dont gotta do this part
+        seriazable_data = {
+            token: [posting.posting_data for posting in postings]
+            for token, postings in self.partial_index.items()
+        }
+        with open(file_name, 'w') as f:
+            json.dump(seriazable_data, f)
+        self.partial_index_file_count += 1
+        self.partial_index.clear()
+
+    def check_and_dump(self):
+        """checks if the partial index is too large. If it is it dumps it. """
+        size_in_bytes = sys.getsizeof(self.partial_index)
+        #change if too small/big
+
+        #CHANGE FOR ACTUAL IMPLEMENTATION
+        if size_in_bytes > 1000: #100 mb 
+            self.dump_partial_index()
+
+    def merge_partial_indexes(self):
+        """Merges all partial indexes from files into the final index."""
+        
+
+        for file_name in os.listdir("partial_index"):
+            file_name = os.path.join("partial_index", file_name) 
+            with open(file_name, 'r') as f:
+                partial_index = json.load(f)
+                # Merge the partial index into the final index
+                for token, postings in partial_index.items():
+                    if token not in self.final_index:
+                        self.final_index[token] = []
+                    self.final_index[token].extend(postings)
+
+        # Save the merged final index and print metrics
+        with open("final_index.json", 'w') as f:
+            json.dump(self.final_index, f)
+        print(f"unique tokens: {len(self.final_index)}")
+        print(f"num of docs: {self.DOC_ID_COUNT - 1}")
+
+            
 
 # Testing if ts actually works and lowk it do 👀
 # ts kinda slow tho icl
@@ -170,5 +224,13 @@ so its stored in disk or sumn like that. Repeat this until all files accounted f
 """
 if __name__ == '__main__':
     inverted_index_instance = InvertedIndex()
-    inverted_index_instance.process_document('DEV/aiclub_ics_uci_edu/8ef6d99d9f9264fc84514cdd2e680d35843785310331e1db4bbd06dd2b8eda9b.json')
-    inverted_index_instance.print_index()
+    folder_dir = "small_dev"
+    for folder in os.listdir(folder_dir):
+        folder_path = os.path.join(folder_dir, folder)  
+        
+        for file in os.listdir(folder_path):
+            file_path = os.path.join(folder_path, file)
+            inverted_index_instance.process_document(file_path)
+            inverted_index_instance.check_and_dump()
+    
+    inverted_index_instance.merge_partial_indexes()
