@@ -4,6 +4,10 @@ import re
 from typing import List, Tuple, Dict, Set
 from bs4 import BeautifulSoup
 from Posting import Posting
+from urllib.parse import urldefrag
+
+DOC_ID_COUNT = 1 # Keeps track of docid number
+DOC_ID = dict() # Maps docid to URL
 
 # Tokenizes content
 def tokenize(content: str) -> List[str]:
@@ -59,6 +63,8 @@ def get_info(file_path: str) -> Tuple[str]:
 
 # Gets the fields of all tokens
 # Lowkey boof can prob simplify code
+# Does this count too many fields? i.e. if a header is in a div will it count it as both a header and body field?
+# Is that right or do we gotta fix it?
 def get_token_fields(soup: BeautifulSoup, tokens: Set[str]) -> Dict[str, List[str]]:
     """
     Gets all the fields that is associated with the provided token.
@@ -102,3 +108,78 @@ def get_token_fields(soup: BeautifulSoup, tokens: Set[str]) -> Dict[str, List[st
         token_fields[token] = fields
     
     return token_fields
+
+def url_to_docid(url: str) -> int:
+    """
+    Maps a docid to the provided url and returns it.
+
+    Args:
+        url (str): URL string to be mapped
+    
+    Returns:
+        int: docid for URL
+    """
+    global DOC_ID_COUNT, DOC_ID
+
+    docid = DOC_ID
+    defragmented_url = urldefrag(url)[0] # Defrag url
+    DOC_ID[DOC_ID_COUNT] = defragmented_url # Map url to docid
+    DOC_ID_COUNT += 1
+
+    return docid
+
+def docid_to_url(docid: int) -> str:
+    """
+    Returns the url associated with the provided docid
+
+    Args:
+        docid (int): docid
+
+    Returns:
+        str: URL associated with docid
+    """
+    return DOC_ID[docid]
+
+# Testing if ts actually works and lowk it do 👀
+# ts kinda slow tho icl
+"""
+Basically copy this same logic when creating the fr inverted index for all files in DEV
+once the size of the inverted partial index exceeds a certain threshold write all info to a file and empty it
+so its stored in disk or sumn like that. Repeat this until all files accounted for then merge the files into a single one
+"""
+if __name__ == '__main__':
+    # Get json info
+    with open('DEV/aiclub_ics_uci_edu/8ef6d99d9f9264fc84514cdd2e680d35843785310331e1db4bbd06dd2b8eda9b.json', 'r') as f:
+        data = json.load(f)
+    
+    # Store inverted index
+    partial_index = dict()
+
+    # Get webpage info
+    url, content, encoding = get_info('DEV/aiclub_ics_uci_edu/8ef6d99d9f9264fc84514cdd2e680d35843785310331e1db4bbd06dd2b8eda9b.json')
+
+    # Parse html and separate content
+    soup = BeautifulSoup(content, 'html.parser')
+    content = soup.get_text(separator=' ', strip=True)
+
+    # Tokenize content
+    tokens = tokenize(content)
+
+    # Get docid, tf, and fields to initialize Posting
+    docid = url_to_docid(url)
+    tf = token_frequency(tokens)
+    fields = get_token_fields(soup, set(tokens))
+
+    # Fill/Create inverted index
+    for token, frequency in tf.items():
+        if token in partial_index:
+            partial_index[token].apend(Posting(docid, frequency, fields[token]))
+        else:
+            partial_index[token] = [Posting(docid, frequency, fields[token])]
+    
+    # Print inverted index
+    for key, value in partial_index.items():
+        print(f"{key}")
+        print(f"    docid: {value[0].docid}")
+        print(f"    frequency: {value[0].tf}")
+        print(f"    fields: {value[0].fields}\n")
