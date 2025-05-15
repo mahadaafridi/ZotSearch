@@ -12,6 +12,7 @@ class InvertedIndex:
     def __init__(self):
         self.DOC_ID_COUNT = 1 # Keeps track of docid number
         self.DOC_ID = dict() # Maps docid to URL
+        self.THRESHOLD_SIZE = 10_000_000 # 10MB threshold
         self.partial_index = dict()
         self.partial_index_file_count = 0 #counts the number of partial index files in total
 
@@ -80,7 +81,7 @@ class InvertedIndex:
 
         return (data['url'], data['content'], data['encoding'])
 
-# Gets the fields of all tokens
+    # Gets the fields of all tokens
     def get_token_fields(self, soup: BeautifulSoup, tokens: Set[str]) -> Dict[str, List[str]]:
         """
         Gets all the fields that is associated with the provided token.
@@ -161,15 +162,25 @@ class InvertedIndex:
         """
         return self.DOC_ID.get(docid, "")
     
-    def process_document(self, file_path: str):
-        url, content, encoding = self.get_info(file_path)
-        soup = BeautifulSoup(content, 'html.parser')
-        content = soup.get_text(separator=' ', strip=True)
-        tokens = self.tokenize(content)
-        docid = self.url_to_docid(url)
-        tf = self.token_frequency(tokens)
-        fields = self.get_token_fields(soup, set(tokens))
+    def process_document(self, file_path: str) -> None:
+        """
+        Processes the provided document into an inverted index.
 
+        Args:
+            file_path (str): relative file path to document
+        
+        Returns:
+            None
+        """
+        url, content, encoding = self.get_info(file_path) # Get info
+        soup = BeautifulSoup(content, 'html.parser') # Parse
+        content = soup.get_text(separator=' ', strip=True) # Get relevant text
+        tokens = self.tokenize(content) # Tokenize
+        docid = self.url_to_docid(url) # Get docid
+        tf = self.token_frequency(tokens) # Get token frequencies
+        fields = self.get_token_fields(soup, set(tokens)) # Get token fields
+
+        # Create inverted index for document
         for token, frequency in tf.items():
             posting = Posting(docid, frequency, fields[token])
             if token in self.partial_index:
@@ -177,7 +188,13 @@ class InvertedIndex:
             else:
                 self.partial_index[token] = [posting]
 
-    def print_index(self):
+    def print_index(self) -> None:
+        """
+        Prints out partial inverted index to the terminal.
+
+        Returns:
+            None
+        """
         for key, value in self.partial_index.items():
             print(f"{key}")
             print(f"    docid: {value[0].docid}")
@@ -185,8 +202,13 @@ class InvertedIndex:
             print(f"    fields: {value[0].fields}\n")
     
 # These functions will be for merging and dumping partial index
-    def dump_partial_index(self):
-        """dumps partial index and resets it"""
+    def dump_partial_index(self) -> None:
+        """
+        Dumps partial index info to a .json file and resets in-memory index to reduce memory usage.
+
+        Returns:
+            None
+        """
         file_name = f'partial_index/{self.partial_index_file_count}.json'
 
         # i did this because you can't json dumps a class that we created (the Postings class)
@@ -195,24 +217,34 @@ class InvertedIndex:
             token: [posting.posting_data for posting in postings]
             for token, postings in self.partial_index.items()
         }
+
         with open(file_name, 'w') as f:
             json.dump(seriazable_data, f)
+        
         self.partial_index_file_count += 1
         self.partial_index.clear()
 
-    def check_and_dump(self):
-        """checks if the partial index is too large. If it is it dumps it. """
+    def check_and_dump(self) -> None:
+        """
+        If size of partial index exceeds threshold, dump and clear it.
+        
+        Returns:
+            None
+        """
         size_in_bytes = sys.getsizeof(self.partial_index)
-        #change if too small/big
 
         #CHANGE FOR ACTUAL IMPLEMENTATION
-        if size_in_bytes > 10_000_000: #10 mb 
+        if size_in_bytes > self.THRESHOLD_SIZE:
             self.dump_partial_index()
             logging.debug("DUMPED THE FILE")
-    def merge_partial_indexes(self):
-        """Merges all partial indexes from files into the final index."""
-        
+    
+    def merge_partial_indexes(self) -> None:
+        """
+        Merges all partial indexes into a final inverted index.
 
+        Returns:
+            None
+        """
         for file_name in os.listdir("partial_index"):
             file_name = os.path.join("partial_index", file_name) 
             with open(file_name, 'r') as f:
@@ -229,15 +261,6 @@ class InvertedIndex:
         print(f"unique tokens: {len(self.final_index)}")
         print(f"num of docs: {self.DOC_ID_COUNT - 1}")
 
-            
-
-# Testing if ts actually works and lowk it do 👀
-# ts kinda slow tho icl
-"""
-Basically copy this same logic when creating the fr inverted index for all files in DEV
-once the size of the inverted partial index exceeds a certain threshold write all info to a file and empty it
-so its stored in disk or sumn like that. Repeat this until all files accounted for then merge the files into a single one
-"""
 if __name__ == '__main__':
     inverted_index_instance = InvertedIndex()
     folder_dir = "DEV"
