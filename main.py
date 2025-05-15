@@ -201,7 +201,7 @@ class InvertedIndex:
             print(f"    frequency: {value[0].tf}")
             print(f"    fields: {value[0].fields}\n")
     
-# These functions will be for merging and dumping partial index
+    # These functions will be for merging and dumping partial index
     def dump_partial_index(self) -> None:
         """
         Dumps partial index info to a .json file and resets in-memory index to reduce memory usage.
@@ -215,7 +215,7 @@ class InvertedIndex:
         # pretty inefficient, so i may consider just getting rid of the posting class so we dont gotta do this part
         seriazable_data = {
             token: [posting.posting_data for posting in postings]
-            for token, postings in self.partial_index.items()
+            for token, postings in sorted(self.partial_index.items())
         }
 
         with open(file_name, 'w') as f:
@@ -238,6 +238,18 @@ class InvertedIndex:
             self.dump_partial_index()
             logging.debug("DUMPED THE FILE")
     
+    """
+    Currently this stores the entire final index in-memory which defeats the purpose of the partial indexes
+    Need to do a multi-way merge. 
+        Open and read all files simultaneously line by line. 
+
+        Since sorted alphabetically we can do a min heap. 
+
+        Grab one token from each file, whichever token is the lowest alpahbetically, merge it with all
+        other instances then add to final index. 
+        
+        Repeat this over and over until done merging type shi
+    """
     def merge_partial_indexes(self) -> None:
         """
         Merges all partial indexes into a final inverted index.
