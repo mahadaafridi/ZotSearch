@@ -6,6 +6,7 @@ from typing import List, Tuple, Dict, Set
 from bs4 import BeautifulSoup
 from Posting import Posting
 from urllib.parse import urldefrag
+import logging
 
 class InvertedIndex:
     def __init__(self):
@@ -18,6 +19,17 @@ class InvertedIndex:
         #makes the folder where we store the partial index
         if not os.path.exists("partial_index"):
             os.makedirs("partial_index")
+            
+        
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.FileHandler("inverted_index.log"),
+                logging.StreamHandler()
+            ]
+        )
+        logging.info("initialized the directory")
 
     def tokenize(self, content: str) -> List[str]:
         """
@@ -190,10 +202,9 @@ class InvertedIndex:
         #change if too small/big
 
         #CHANGE FOR ACTUAL IMPLEMENTATION
-        if size_in_bytes > 50_000_000: #50 mb 
+        if size_in_bytes > 10_000_000: #10 mb 
             self.dump_partial_index()
-            print("DUMPED PARTIAL")
-
+            logging.debug("DUMPED THE FILE")
     def merge_partial_indexes(self):
         """Merges all partial indexes from files into the final index."""
         
@@ -227,10 +238,11 @@ if __name__ == '__main__':
     inverted_index_instance = InvertedIndex()
     folder_dir = "DEV"
     for folder in os.listdir(folder_dir):
+        logging.info(f"ON FOLDER {folder}")
         folder_path = os.path.join(folder_dir, folder)  
         for file in os.listdir(folder_path):
+            logging.info(f"ON FILE{file}")
             file_path = os.path.join(folder_path, file)
-            print(file_path)
             inverted_index_instance.process_document(file_path)
             inverted_index_instance.check_and_dump()
     
