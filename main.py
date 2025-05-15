@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from Posting import Posting
 from urllib.parse import urldefrag
 import logging
+import heapq
 
 class InvertedIndex:
     def __init__(self):
@@ -209,18 +210,20 @@ class InvertedIndex:
         Returns:
             None
         """
-        file_name = f'partial_index/{self.partial_index_file_count}.json'
+        file_name = f'partial_index/{self.partial_index_file_count}.jsonl'
 
         # i did this because you can't json dumps a class that we created (the Postings class)
         # pretty inefficient, so i may consider just getting rid of the posting class so we dont gotta do this part
-        seriazable_data = {
+        serializable_data = {
             token: [posting.posting_data for posting in postings]
             for token, postings in sorted(self.partial_index.items())
         }
 
         with open(file_name, 'w') as f:
-            json.dump(seriazable_data, f)
-        
+            for token, postings in serializable_data.items():
+                json_line = json.dumps({token: postings})
+                f.write(json_line + '\n')
+
         self.partial_index_file_count += 1
         self.partial_index.clear()
 
@@ -257,25 +260,80 @@ class InvertedIndex:
         Returns:
             None
         """
-        for file_name in os.listdir("partial_index"):
-            file_name = os.path.join("partial_index", file_name) 
-            with open(file_name, 'r') as f:
-                partial_index = json.load(f)
-                # Merge the partial index into the final index
-                for token, postings in partial_index.items():
-                    if token not in self.final_index:
-                        self.final_index[token] = []
-                    self.final_index[token].extend(postings)
+        # for file_name in os.listdir("partial_index"):
+        #     file_name = os.path.join("partial_index", file_name) 
+        #     with open(file_name, 'r') as f:
+        #         partial_index = json.load(f)
+        #         # Merge the partial index into the final index
+        #         for token, postings in partial_index.items():
+        #             if token not in self.final_index:
+        #                 self.final_index[token] = []
+        #             self.final_index[token].extend(postings)
+        
+        # List of open file descriptors
+        files = [open(f'partial_index/{i}.jsonl', 'r') for i in range(self.partial_index_file_count)]
 
-        # Save the merged final index and print metrics
-        with open("final_index.json", 'w') as f:
-            json.dump(self.final_index, f)
-        print(f"unique tokens: {len(self.final_index)}")
-        print(f"num of docs: {self.DOC_ID_COUNT - 1}")
+        def read_next(file):
+            line = file.readline()
+            if not line:
+                return None
+            return json.loads(line)
+
+        # Initialize min-heap with first line of each file
+        heap = []
+        for i, f in enumerate(files):
+            entry = read_next(f)
+            key = list(entry.keys())[0]
+
+            if entry:
+                heapq.heappush(heap, (key, i, entry[key]))
+
+        # Open final inverted index file and dump to it
+        with open('final_index.jsonl', 'w') as out_file:
+            current_token = None
+            current_postings = []
+
+            while heap:
+                token, file_idx, postings = heapq.heappop(heap)
+
+                # No more of same token, merge and dump to final index
+                if token != current_token:
+                    if current_token is not None:
+                        out_file.write(json.dumps({'token': current_token, 'postings': current_postings}) + '\n')
+                    current_token = token
+                    current_postings = postings
+                else:
+                    # Same token from multiple files, merge postings
+                    current_postings.extend(postings)
+
+                # Advance this file's iterator
+                next_entry = read_next(files[file_idx])
+                if next_entry:
+                    key = list(next_entry.keys())[0]
+                    heapq.heappush(heap, (key, file_idx, next_entry[key]))
+        # Write last token's postings
+            if current_token is not None:
+                out_file.write(json.dumps({'token': current_token, 'postings': current_postings}) + '\n')
+
+        
+        
+        # for f in files:
+        #     f.close()
+            
+        #     with open("final_index.json") as f:
+                
+        #     # Save the merged final index and print metrics
+            
+            
+            
+        #     with open("final_index.json", 'w') as f:
+        #         json.dump(self.final_index, f)
+        #     print(f"unique tokens: {len(self.final_index)}")
+        #     print(f"num of docs: {self.DOC_ID_COUNT - 1}")
 
 if __name__ == '__main__':
     inverted_index_instance = InvertedIndex()
-    folder_dir = "DEV"
+    folder_dir = "small_dev"
     for folder in os.listdir(folder_dir):
         logging.info(f"ON FOLDER {folder}")
         folder_path = os.path.join(folder_dir, folder)  
@@ -284,5 +342,9 @@ if __name__ == '__main__':
             file_path = os.path.join(folder_path, file)
             inverted_index_instance.process_document(file_path)
             inverted_index_instance.check_and_dump()
+    
+
+    if inverted_index_instance.partial_index:
+        inverted_index_instance.dump_partial_index()
     
     inverted_index_instance.merge_partial_indexes()
