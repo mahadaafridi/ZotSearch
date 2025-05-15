@@ -81,9 +81,6 @@ class InvertedIndex:
         return (data['url'], data['content'], data['encoding'])
 
 # Gets the fields of all tokens
-# Lowkey boof can prob simplify code
-# Does this count too many fields? i.e. if a header is in a div will it count it as both a header and body field?
-# Is that right or do we gotta fix it?
     def get_token_fields(self, soup: BeautifulSoup, tokens: Set[str]) -> Dict[str, List[str]]:
         """
         Gets all the fields that is associated with the provided token.
@@ -119,10 +116,17 @@ class InvertedIndex:
                     break
             
             # Find if token in body field
-            for paragraph in soup.find_all(['p', 'span', 'div']):
-                if token in self.tokenize(paragraph.get_text()):
-                    fields.append('body')
-                    break
+            # If the field so far is empty then check all divs, if not empty only check in relevant <p> and <span> tags
+            if not fields: # If fields empty
+                for paragraph in soup.find_all(['p', 'span', 'div']):
+                    if token in self.tokenize(paragraph.get_text()):
+                        fields.append('body')
+                        break
+            else:
+                for paragraph in soup.find_all(['p', 'span']):
+                    if token in self.tokenize(paragraph.get_text()):
+                        fields.append('body')
+                        break
             
             token_fields[token] = fields
         
