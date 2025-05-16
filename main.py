@@ -8,6 +8,7 @@ from Posting import Posting
 from urllib.parse import urldefrag
 import logging
 import heapq
+from pympler import asizeof
 
 class InvertedIndex:
     def __init__(self):
@@ -234,12 +235,14 @@ class InvertedIndex:
         Returns:
             None
         """
-        size_in_bytes = sys.getsizeof(self.partial_index)
+        size_in_bytes = asizeof.asizeof(self.partial_index)        
+        logging.info(f"SIZE IN BYTES: {size_in_bytes}")
 
         #CHANGE FOR ACTUAL IMPLEMENTATION
         if size_in_bytes > self.THRESHOLD_SIZE:
             self.dump_partial_index()
-            logging.debug("DUMPED THE FILE")
+
+            logging.info("DUMPED THE FILE")
     
     """
     Currently this stores the entire final index in-memory which defeats the purpose of the partial indexes
@@ -251,7 +254,6 @@ class InvertedIndex:
         Grab one token from each file, whichever token is the lowest alpahbetically, merge it with all
         other instances then add to final index. 
         
-        Repeat this over and over until done merging type shi
     """
     def merge_partial_indexes(self) -> None:
         """
@@ -271,6 +273,7 @@ class InvertedIndex:
         #             self.final_index[token].extend(postings)
         
         # List of open file descriptors
+        logging.info("STARTING MERGE")
         files = [open(f'partial_index/{i}.jsonl', 'r') for i in range(self.partial_index_file_count)]
 
         def read_next(file):
@@ -314,6 +317,8 @@ class InvertedIndex:
             # 
             if current_token is not None:
                 out_file.write(json.dumps({'token': current_token, 'postings': current_postings}) + '\n')
+            
+            logging.info("FINAL MERGE")
 
         
         
