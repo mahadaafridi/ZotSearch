@@ -11,10 +11,10 @@ import heapq
 
 class InvertedIndex:
     def __init__(self):
-        self.DOC_ID_COUNT = 1 # Keeps track of docid number
-        self.DOC_ID = dict() # Maps docid to URL
+        self.DOC_ID_COUNT = 1 # tracks the document id
+        self.DOC_ID = dict() # map of doc_id ot url
         self.THRESHOLD_SIZE = 10_000_000 # 10MB threshold
-        self.partial_index = dict()
+        self.partial_index = dict() #stores partial index in memory
         self.partial_index_file_count = 0 #counts the number of partial index files in total
 
         self.final_index = dict()
@@ -22,7 +22,7 @@ class InvertedIndex:
         if not os.path.exists("partial_index"):
             os.makedirs("partial_index")
             
-        
+        #initialize logging
         logging.basicConfig(
             level=logging.INFO,
             format='%(asctime)s - %(levelname)s - %(message)s',
@@ -296,7 +296,7 @@ class InvertedIndex:
             while heap:
                 token, file_idx, postings = heapq.heappop(heap)
 
-                # No more of same token, merge and dump to final index
+                # No more of same token in heap, merge and dump to final index
                 if token != current_token:
                     if current_token is not None:
                         out_file.write(json.dumps({'token': current_token, 'postings': current_postings}) + '\n')
@@ -306,12 +306,12 @@ class InvertedIndex:
                     # Same token from multiple files, merge postings
                     current_postings.extend(postings)
 
-                # Advance this file's iterator
-                next_entry = read_next(files[file_idx])
+                # Get next line from file
+                next_entry = read_next(files[i])
                 if next_entry:
                     key = list(next_entry.keys())[0]
-                    heapq.heappush(heap, (key, file_idx, next_entry[key]))
-        # Write last token's postings
+                    heapq.heappush(heap, (key, i, next_entry[key]))
+            # 
             if current_token is not None:
                 out_file.write(json.dumps({'token': current_token, 'postings': current_postings}) + '\n')
 
@@ -333,7 +333,7 @@ class InvertedIndex:
 
 if __name__ == '__main__':
     inverted_index_instance = InvertedIndex()
-    folder_dir = "small_dev"
+    folder_dir = "DEV/DEV"
     for folder in os.listdir(folder_dir):
         logging.info(f"ON FOLDER {folder}")
         folder_path = os.path.join(folder_dir, folder)  
