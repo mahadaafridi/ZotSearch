@@ -9,26 +9,33 @@ from urllib.parse import urldefrag
 import logging
 import heapq
 from pympler import asizeof
+from nltk.stem import PorterStemmer
 
 class InvertedIndex:
+    # directorys
+    PARTIAL_INDEX_DIR = "run"
+    FINAL_INDEX_FILE = "run.jsonl"
+    LOG_FILE = "run.log"
+    
     def __init__(self):
         self.DOC_ID_COUNT = 1 # tracks the document id
         self.DOC_ID = dict() # map of doc_id ot url
-        self.THRESHOLD_SIZE = 10_000_000 # 10MB threshold
+        self.THRESHOLD_SIZE = 20_000_000 # 20MB threshold
         self.partial_index = dict() #stores partial index in memory
         self.partial_index_file_count = 0 #counts the number of partial index files in total
-
+        self.stemmer = PorterStemmer()
         self.final_index = dict()
+
         #makes the folder where we store the partial index
-        if not os.path.exists("partial_index"):
-            os.makedirs("partial_index")
+        if not os.path.exists(self.PARTIAL_INDEX_DIR):
+            os.makedirs(self.PARTIAL_INDEX_DIR)
             
         #initialize logging
         logging.basicConfig(
             level=logging.INFO,
             format='%(asctime)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler("inverted_index.log"),
+                logging.FileHandler(self.LOG_FILE),
                 logging.StreamHandler()
             ]
         )
@@ -37,6 +44,7 @@ class InvertedIndex:
     def tokenize(self, content: str) -> List[str]:
         """
         Tokenizes the provided content into alphanumeric sequences and returns as a list.
+        Numbers are preserved as-is, while words are stemmed.
 
         Args:
             content (str): Input string to be tokenized
@@ -44,9 +52,20 @@ class InvertedIndex:
         Returns:
             List[str]: A list of tokens
         """
+        # First split into words and numbers
         tokens = re.findall(r'[a-z0-9]+', content.lower())
-
-        return tokens
+        
+        # Process each token
+        processed_tokens = []
+        for token in tokens:
+            if token.isdigit():
+                # Keep numbers as-is
+                processed_tokens.append(token)
+            else:
+                # Stem only words
+                processed_tokens.append(self.stemmer.stem(token))
+        
+        return processed_tokens
 
     def token_frequency(self, tokens: List[str]) -> Dict[str, int]:
         """
@@ -78,10 +97,17 @@ class InvertedIndex:
         returns:
             Tuple[str]: URL, content, and encoding of webpage
         """
-        with open(file_path, 'r') as file:
-            data = json.load(file)
+        try:
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+            return (data['url'], data['content'], data['encoding'])
+        except json.JSONDecodeError as e:
+            logging.info(f"JSON decoding error with file {file_path}: {e}")
+            return ("", "", "")
+        except Exception as e:
+            logging.info(f"Failed to process file {file_path}: {e}")
+            return ("", "", "")
 
-        return (data['url'], data['content'], data['encoding'])
 
     # Gets the fields of all tokens
     def get_token_fields(self, soup: BeautifulSoup, tokens: Set[str]) -> Dict[str, List[str]]:
@@ -97,40 +123,27 @@ class InvertedIndex:
         """
         token_fields = {}
 
+        # pre tokenize everything to be more efficient
+        title_text = ' '.join(title.get_text() for title in soup.find_all('title'))
+        header_text = ' '.join(header.get_text() for header in soup.find_all(['h1', 'h2', 'h3']))
+        strong_text = ' '.join(strong.get_text() for strong in soup.find_all('strong'))
+        body_text = ' '.join(p.get_text() for p in soup.find_all(['p', 'span', 'div']))
+
+        title_tokens = set(self.tokenize(title_text))
+        header_tokens = set(self.tokenize(header_text))
+        strong_tokens = set(self.tokenize(strong_text))
+        body_tokens = set(self.tokenize(body_text))
+
         for token in tokens:
             fields = []
-
-            # Find if token is in title field
-            for title in soup.find_all('title'):
-                if token in self.tokenize(title.get_text()):
-                    fields.append('title')
-                    break
-            
-            # Find if token in header field
-            for header in soup.find_all(['h1', 'h2', 'h3']):
-                if token in self.tokenize(header.get_text()):
-                    fields.append('header')
-                    break
-            
-            # Find if token in strong field
-            for strong in soup.find_all('strong'):
-                if token in self.tokenize(strong.get_text()):
-                    fields.append('strong')
-                    break
-            
-            # Find if token in body field
-            # If the field so far is empty then check all divs, if not empty only check in relevant <p> and <span> tags
-            if not fields: # If fields empty
-                for paragraph in soup.find_all(['p', 'span', 'div']):
-                    if token in self.tokenize(paragraph.get_text()):
-                        fields.append('body')
-                        break
-            else:
-                for paragraph in soup.find_all(['p', 'span']):
-                    if token in self.tokenize(paragraph.get_text()):
-                        fields.append('body')
-                        break
-            
+            if token in title_tokens:
+                fields.append('title')
+            if token in header_tokens:
+                fields.append('header')
+            if token in strong_tokens:
+                fields.append('strong')
+            if token in body_tokens:
+                fields.append('body')
             token_fields[token] = fields
         
         return token_fields
@@ -145,12 +158,11 @@ class InvertedIndex:
         Returns:
             int: docid for URL
         """
-
         defragmented_url = urldefrag(url)[0] # Defrag url
-        self.DOC_ID[self.DOC_ID_COUNT] = defragmented_url # Map url to docid
+        docid = self.DOC_ID_COUNT
+        self.DOC_ID[docid] = defragmented_url # Map url to docid
         self.DOC_ID_COUNT += 1
-
-        return self.DOC_ID_COUNT - 1 #changed this because this funciton is supposed to return an int (before the variable it was returning was a dict)
+        return docid
 
     def docid_to_url(self, docid: int) -> str:
         """
@@ -175,20 +187,31 @@ class InvertedIndex:
             None
         """
         url, content, encoding = self.get_info(file_path) # Get info
-        soup = BeautifulSoup(content, 'html.parser') # Parse
-        content = soup.get_text(separator=' ', strip=True) # Get relevant text
-        tokens = self.tokenize(content) # Tokenize
-        docid = self.url_to_docid(url) # Get docid
-        tf = self.token_frequency(tokens) # Get token frequencies
-        fields = self.get_token_fields(soup, set(tokens)) # Get token fields
 
-        # Create inverted index for document
-        for token, frequency in tf.items():
-            posting = Posting(docid, frequency, fields[token])
-            if token in self.partial_index:
-                self.partial_index[token].append(posting)
-            else:
-                self.partial_index[token] = [posting]
+        if not url or not content:  # Skip if we couldn't get valid content
+            return
+
+        if len(content) > self.THRESHOLD_SIZE:
+            logging.warning(f"Content too large in {file_path}: {len(content)} bytes")
+            return
+
+        try:
+            soup = BeautifulSoup(content, 'html.parser')
+            content = soup.get_text(separator=' ', strip=True)
+            tokens = self.tokenize(content)
+            docid = self.url_to_docid(url)
+            tf = self.token_frequency(tokens)
+            fields = self.get_token_fields(soup, set(tokens))
+
+            # Create inverted index for document
+            for token, frequency in tf.items():
+                posting = Posting(docid, frequency, fields[token])
+                if token in self.partial_index:
+                    self.partial_index[token].append(posting)
+                else:
+                    self.partial_index[token] = [posting]
+        except Exception as e:
+            logging.error(f"Error processing document {file_path}: {e}")
 
     def print_index(self) -> None:
         """
@@ -211,7 +234,7 @@ class InvertedIndex:
         Returns:
             None
         """
-        file_name = f'partial_index/{self.partial_index_file_count}.jsonl'
+        file_name = f'{self.PARTIAL_INDEX_DIR}/{self.partial_index_file_count}.jsonl'
 
         # i did this because you can't json dumps a class that we created (the Postings class)
         # pretty inefficient, so i may consider just getting rid of the posting class so we dont gotta do this part
@@ -262,19 +285,9 @@ class InvertedIndex:
         Returns:
             None
         """
-        # for file_name in os.listdir("partial_index"):
-        #     file_name = os.path.join("partial_index", file_name) 
-        #     with open(file_name, 'r') as f:
-        #         partial_index = json.load(f)
-        #         # Merge the partial index into the final index
-        #         for token, postings in partial_index.items():
-        #             if token not in self.final_index:
-        #                 self.final_index[token] = []
-        #             self.final_index[token].extend(postings)
-        
         # List of open file descriptors
         logging.info("STARTING MERGE")
-        files = [open(f'partial_index/{i}.jsonl', 'r') for i in range(self.partial_index_file_count)]
+        files = [open(f'{self.PARTIAL_INDEX_DIR}/{i}.jsonl', 'r') for i in range(self.partial_index_file_count)]
 
         def read_next(file):
             line = file.readline()
@@ -286,15 +299,15 @@ class InvertedIndex:
         heap = []
         for i, f in enumerate(files):
             entry = read_next(f)
-            key = list(entry.keys())[0]
-
             if entry:
+                key = list(entry.keys())[0]
                 heapq.heappush(heap, (key, i, entry[key]))
 
         # Open final inverted index file and dump to it
-        with open('final_index.jsonl', 'w') as out_file:
+        with open(self.FINAL_INDEX_FILE, 'w') as out_file:
             current_token = None
             current_postings = []
+            posting_map = {}  # Map to track unique docids and their frequencies
 
             while heap:
                 token, file_idx, postings = heapq.heappop(heap)
@@ -302,39 +315,47 @@ class InvertedIndex:
                 # No more of same token in heap, merge and dump to final index
                 if token != current_token:
                     if current_token is not None:
-                        out_file.write(json.dumps({'token': current_token, 'postings': current_postings}) + '\n')
+                        # Convert posting map back to list and sort by docid
+                        merged_postings = [
+                            {"docid": docid, "tf": data["tf"], "fields": data["fields"]}
+                            for docid, data in sorted(posting_map.items())
+                        ]
+                        out_file.write(json.dumps({'token': current_token, 'postings': merged_postings}) + '\n')
                     current_token = token
-                    current_postings = postings
+                    posting_map = {}
+                    # Initialize posting map with current postings
+                    for posting in postings:
+                        docid = posting["docid"]
+                        if docid in posting_map:
+                            posting_map[docid]["tf"] += posting["tf"]
+                            posting_map[docid]["fields"] = list(set(posting_map[docid]["fields"] + posting["fields"]))
+                        else:
+                            posting_map[docid] = {"tf": posting["tf"], "fields": posting["fields"]}
                 else:
                     # Same token from multiple files, merge postings
-                    current_postings.extend(postings)
+                    for posting in postings:
+                        docid = posting["docid"]
+                        if docid in posting_map:
+                            posting_map[docid]["tf"] += posting["tf"]
+                            posting_map[docid]["fields"] = list(set(posting_map[docid]["fields"] + posting["fields"]))
+                        else:
+                            posting_map[docid] = {"tf": posting["tf"], "fields": posting["fields"]}
 
                 # Get next line from file
-                next_entry = read_next(files[i])
+                next_entry = read_next(files[file_idx])
                 if next_entry:
                     key = list(next_entry.keys())[0]
-                    heapq.heappush(heap, (key, i, next_entry[key]))
-            # 
+                    heapq.heappush(heap, (key, file_idx, next_entry[key]))
+            
+            #write the last token 
             if current_token is not None:
-                out_file.write(json.dumps({'token': current_token, 'postings': current_postings}) + '\n')
+                merged_postings = [
+                    {"docid": docid, "tf": data["tf"], "fields": data["fields"]}
+                    for docid, data in sorted(posting_map.items())
+                ]
+                out_file.write(json.dumps({'token': current_token, 'postings': merged_postings}) + '\n')
             
             logging.info("FINAL MERGE")
-
-        
-        
-        # for f in files:
-        #     f.close()
-            
-        #     with open("final_index.json") as f:
-                
-        #     # Save the merged final index and print metrics
-            
-            
-            
-        #     with open("final_index.json", 'w') as f:
-        #         json.dump(self.final_index, f)
-        #     print(f"unique tokens: {len(self.final_index)}")
-        #     print(f"num of docs: {self.DOC_ID_COUNT - 1}")
 
 if __name__ == '__main__':
     inverted_index_instance = InvertedIndex()
@@ -342,6 +363,7 @@ if __name__ == '__main__':
     for folder in os.listdir(folder_dir):
         logging.info(f"ON FOLDER {folder}")
         folder_path = os.path.join(folder_dir, folder)  
+        print(folder_path)
         for file in os.listdir(folder_path):
             logging.info(f"ON FILE{file}")
             file_path = os.path.join(folder_path, file)
