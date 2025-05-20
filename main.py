@@ -10,12 +10,28 @@ import logging
 import heapq
 from pympler import asizeof
 from nltk.stem import PorterStemmer
+FOLDER_DIR = "small_dev"
+
+def custom_hash(s):
+    """
+    Took this from Geeks for Geeks since we aren't allowed to use a library for the hashing
+    """
+    n = len(s)
+    p = 31
+    m = int(1e9 + 7)
+    hashVal = 0
+    pPow = 1
+    for i in range(n):
+        hashVal = (hashVal + (ord(s[i]) - ord('a') + 1) * pPow) % m
+        pPow = (pPow * p) % m
+    return hashVal
 
 class InvertedIndex:
     # directorys
-    PARTIAL_INDEX_DIR = "run"
-    FINAL_INDEX_FILE = "run.jsonl"
-    LOG_FILE = "run.log"
+    PARTIAL_INDEX_DIR = "small_dev_partial"
+    FINAL_INDEX_FILE = "small_dev_index.jsonl"
+    LOG_FILE = "small_dev.log"
+    DOC_ID_FILE = "small_dev_doc_id"
     
     def __init__(self):
         self.DOC_ID_COUNT = 1 # tracks the document id
@@ -25,6 +41,7 @@ class InvertedIndex:
         self.partial_index_file_count = 0 #counts the number of partial index files in total
         self.stemmer = PorterStemmer()
         self.final_index = dict()
+        self.near_duplicate = set() # store fingerprints 
 
         #makes the folder where we store the partial index
         if not os.path.exists(self.PARTIAL_INDEX_DIR):
@@ -87,7 +104,7 @@ class InvertedIndex:
         
         return frequencies
 
-    def get_info(self, file_path: str) -> Tuple[str]:
+    def get_info(self, file_path: str) -> Tuple[str, str, str]:
         """
         Given a file path to a .json file, returns the URL, content, and encoding of the webpage.
 
@@ -176,6 +193,49 @@ class InvertedIndex:
         """
         return self.DOC_ID.get(docid, "")
     
+    def is_duplicate(self, tokens: List[str]) -> bool:
+        """
+        Checks if a document is a near-duplicate of any previously processed document.
+        
+        Args:
+            tokens (List[str]): List of tokens from the document
+            
+        Returns:
+            bool: True if document is a duplicate, False otherwise
+        """
+        similarity_treshold = 0.85
+        min_token_count = 10
+        
+        if len(tokens) < min_token_count:
+            return False
+        
+        trigrams = []
+        for i in range(len(tokens) - 2):
+            trigram = ' '.join(tokens[i:i + 3])
+            trigrams.append(trigram)
+
+        trigram_hashes = set()
+        for ngram in trigrams:
+            trigram_hashes.add(custom_hash(ngram))
+
+        selected_hashes = set()
+        for h in trigram_hashes:
+            if h % 4 == 0:
+                selected_hashes.add(h)
+
+        for fingerprint in self.near_duplicate:
+            intersection = selected_hashes.intersection(fingerprint)
+            union = selected_hashes.union(fingerprint)
+            if union:
+                similarity_score = len(intersection) / len(union)
+            else:
+                similarity_score = 0.0
+            if similarity_score >= similarity_treshold:
+                return True
+
+        self.near_duplicate.add(frozenset(selected_hashes))    
+        return False
+
     def process_document(self, file_path: str) -> None:
         """
         Processes the provided document into an inverted index.
@@ -191,14 +251,16 @@ class InvertedIndex:
         if not url or not content:  # Skip if we couldn't get valid content
             return
 
-        if len(content) > self.THRESHOLD_SIZE:
-            logging.warning(f"Content too large in {file_path}: {len(content)} bytes")
-            return
-
         try:
             soup = BeautifulSoup(content, 'html.parser')
             content = soup.get_text(separator=' ', strip=True)
             tokens = self.tokenize(content)
+            
+            # Check for duplicates before processing
+            if self.is_duplicate(tokens):
+                logging.info(f"Skipping dupe document{url}")
+                return
+                
             docid = self.url_to_docid(url)
             tf = self.token_frequency(tokens)
             fields = self.get_token_fields(soup, set(tokens))
@@ -210,21 +272,10 @@ class InvertedIndex:
                     self.partial_index[token].append(posting)
                 else:
                     self.partial_index[token] = [posting]
+                    
         except Exception as e:
             logging.error(f"Error processing document {file_path}: {e}")
 
-    def print_index(self) -> None:
-        """
-        Prints out partial inverted index to the terminal.
-
-        Returns:
-            None
-        """
-        for key, value in self.partial_index.items():
-            print(f"{key}")
-            print(f"    docid: {value[0].docid}")
-            print(f"    frequency: {value[0].tf}")
-            print(f"    fields: {value[0].fields}\n")
     
     # These functions will be for merging and dumping partial index
     def dump_partial_index(self) -> None:
@@ -250,6 +301,7 @@ class InvertedIndex:
 
         self.partial_index_file_count += 1
         self.partial_index.clear()
+        self.near_duplicate.clear() #clear the fingerprints also so it doens't overflow
 
     def check_and_dump(self) -> None:
         """
@@ -267,6 +319,16 @@ class InvertedIndex:
 
             logging.info("DUMPED THE FILE")
     
+    def save_doc_id_mapping(self) -> None:
+        """
+        Saves the docID
+        """
+        with open(self.DOC_ID_FILE, 'w') as f:
+            for docid, url in sorted(self.DOC_ID.items()):
+                json_line = json.dumps({"docid": docid, "url": url})
+                f.write(json_line + '\n')
+        logging.info(f"Saved DOC_ID mapping") 
+
     """
     Currently this stores the entire final index in-memory which defeats the purpose of the partial indexes
     Need to do a multi-way merge. 
@@ -357,12 +419,15 @@ class InvertedIndex:
             
             logging.info("FINAL MERGE")
 
+        logging.info("SAVE MAPPING")
+        self.save_doc_id_mapping()
+
 if __name__ == '__main__':
     inverted_index_instance = InvertedIndex()
-    folder_dir = "DEV/DEV"
-    for folder in os.listdir(folder_dir):
+    
+    for folder in os.listdir(FOLDER_DIR):
         logging.info(f"ON FOLDER {folder}")
-        folder_path = os.path.join(folder_dir, folder)  
+        folder_path = os.path.join(FOLDER_DIR, folder)  
         print(folder_path)
         for file in os.listdir(folder_path):
             logging.info(f"ON FILE{file}")
