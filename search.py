@@ -1,0 +1,235 @@
+import json
+import math
+import os
+import time
+from typing import List, Dict, Set, Tuple
+from nltk.stem import PorterStemmer
+from collections import defaultdict
+
+class Search:
+    def __init__(self, index_dir: str, doc_id_file: str):
+        """
+        Initialize the Search class with the split index files and document ID mapping.
+        
+        Args:
+            index_dir (str): Directory containing the split index files
+            doc_id_file (str): Path to the document ID mapping file
+        """
+        self.index_dir = index_dir
+        self.doc_id_file = doc_id_file
+        self.doc_id_map = {}      # Will store docid -> url mapping
+        self.stemmer = PorterStemmer()
+        self.total_docs = 0       # Will store total number of documents
+        self.index_files = {}     # Will store mapping of ranges to file paths
+        
+        # Load document mapping and index files
+        self._load_doc_id_map()
+        self._load_index_files()
+
+    def _load_index_files(self) -> None:
+        """Load the mapping of letters to index files."""
+        # Get all index files in the directory
+        for filename in os.listdir(self.index_dir):
+            if filename.endswith('.jsonl'):
+                # Extract letter from filename (e.g., "a.jsonl" -> "a")
+                letter = filename[:-6]  # Remove .jsonl
+                self.index_files[letter] = os.path.join(self.index_dir, filename)
+
+    def _get_index_file_for_token(self, token: str) -> str | None:
+        """
+        Get the appropriate index file for a given token.
+        
+        Args:
+            token (str): The token to look up
+            
+        Returns:
+            str | None: Path to the index file containing the token, or None if not found
+        """
+        if not token:
+            return None
+            
+        first_char = token[0].lower()
+        if first_char.isalpha():
+            return self.index_files.get(first_char)
+        return self.index_files.get('other')
+
+    def _get_token_postings(self, token: str) -> List[Dict]:
+        """
+        Get postings for a specific token from the appropriate index file.
+        
+        Args:
+            token (str): The token to look up
+            
+        Returns:
+            List[Dict]: List of postings for the token
+        """
+        if not token:
+            return []
+            
+        # Get the appropriate index file
+        index_file = self._get_index_file_for_token(token)
+        if not index_file:
+            return []
+            
+        try:
+            with open(index_file, 'r') as f:
+                while True:
+                    line = f.readline()
+                    if not line:
+                        break
+                        
+                    data = json.loads(line)
+                    if data['token'] == token:
+                        return data['postings']
+                    # If we've passed where the token should be, stop searching
+                    elif data['token'] > token:
+                        break
+                        
+        except Exception as e:
+            print(f"Error looking up token {token}: {e}")
+            
+        return []
+
+    def _load_doc_id_map(self) -> None:
+        """Load the document ID to URL mapping."""
+        try:
+            with open(self.doc_id_file, 'r') as f:
+                for line in f:
+                    data = json.loads(line)
+                    self.doc_id_map[data['docid']] = data['url']
+            self.total_docs = len(self.doc_id_map)
+        except Exception as e:
+            print(f"Error loading document mapping: {e}")
+
+    def tokenize_query(self, query: str) -> List[str]:
+        """
+        Tokenize and stem the query terms.
+        
+        Args:
+            query (str): The search query
+            
+        Returns:
+            List[str]: List of stemmed tokens
+        """
+        tokens = query.lower().split()
+        return [self.stemmer.stem(token) for token in tokens]
+
+    def calculate_tfidf(self, doc_id: int, token: str) -> float:
+        """
+        Calculate TF-IDF score for a token in a document.
+        
+        Args:
+            doc_id (int): Document ID
+            token (str): Token to calculate score for
+            
+        Returns:
+            float: TF-IDF score
+        """
+        postings = self._get_token_postings(token)
+        if not postings:
+            return 0.0
+            
+        posting = next((p for p in postings if p['docid'] == doc_id), None)
+        if not posting:
+            return 0.0
+            
+        tf = posting['tf']
+        df = len(postings)
+        idf = math.log(self.total_docs / (1 + df))
+        
+        field_boost = 1.0
+        if 'title' in posting['fields']:
+            field_boost *= 2.0
+        if 'header' in posting['fields']:
+            field_boost *= 1.5
+        if 'strong' in posting['fields']:
+            field_boost *= 1.3
+            
+        return tf * idf * field_boost
+
+    def boolean_and_search(self, tokens: List[str]) -> Set[int]:
+        """
+        Perform boolean AND search for the given tokens.
+        
+        Args:
+            tokens (List[str]): List of tokens to search for
+            
+        Returns:
+            Set[int]: Set of document IDs that contain all tokens
+        """
+        if not tokens:
+            return set()
+            
+        doc_sets = []
+        for token in tokens:
+            postings = self._get_token_postings(token)
+            if postings:
+                doc_ids = {posting['docid'] for posting in postings}
+                doc_sets.append(doc_ids)
+            else:
+                return set()
+                
+        result = doc_sets[0]
+        for doc_set in doc_sets[1:]:
+            result = result.intersection(doc_set)
+            
+        return result
+
+    def search(self, query: str) -> List[Dict]:
+        """
+        Search for documents matching the query and return ranked results.
+        
+        Args:
+            query (str): Search query
+            
+        Returns:
+            List[Dict]: List of ranked results with URLs and scores
+        """
+        tokens = self.tokenize_query(query)
+        matching_docs = self.boolean_and_search(tokens)
+        
+        results = []
+        for doc_id in matching_docs:
+            score = sum(self.calculate_tfidf(doc_id, token) for token in tokens)
+            results.append({
+                'url': self.doc_id_map[doc_id],
+                'score': score
+            })
+            
+        results.sort(key=lambda x: x['score'], reverse=True)
+        return results
+
+if __name__ == '__main__':
+    # Initialize search with the index directory and doc ID file
+    search_engine = Search(
+        index_dir="ANALYST_index",
+        doc_id_file="ANALYST_doc_id.jsonl"
+    )
+    
+    print("Welcome to the Search Engine!")
+    print("Enter your query (type 'quit' to exit):")
+    
+    while True:
+        query = input("\nQuery: ").strip()
+        if query.lower() == 'quit':
+            break
+            
+        if not query:
+            print("Please enter a valid query.")
+            continue
+            
+        # Start timing
+        start_time = time.time()
+        results = search_engine.search(query)
+        # Calculate elapsed time in milliseconds
+        elapsed_time = (time.time() - start_time) * 1000
+        
+        if not results:
+            print("No results found.")
+        else:
+            # Limit to top 5 results
+            top_results = results[:5]
+            print(f"\nFound {len(results)} results (showing top 5):")
+            print(f"Query completed in {elapsed_time:.2f} milliseconds")
+            for i, result in enumerate(top_results, 1):
+                print(f"{i}. {result['url']} (Score: {result['score']:.2f})") 
