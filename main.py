@@ -10,7 +10,6 @@ import logging
 import heapq
 from pympler import asizeof
 from nltk.stem import PorterStemmer
-FOLDER_DIR = "small_dev"
 
 def custom_hash(s):
     """
@@ -26,12 +25,14 @@ def custom_hash(s):
         pPow = (pPow * p) % m
     return hashVal
 
+
+FOLDER_DIR = "DEV/DEV"
 class InvertedIndex:
     # directorys
-    PARTIAL_INDEX_DIR = "small_dev_partial"
-    FINAL_INDEX_FILE = "small_dev_index.jsonl"
-    LOG_FILE = "small_dev.log"
-    DOC_ID_FILE = "small_dev_doc_id"
+    PARTIAL_INDEX_DIR = f"{FOLDER_DIR}_partial"
+    FINAL_INDEX_FILE = f"{FOLDER_DIR}_final.jsonl"
+    LOG_FILE = f"{FOLDER_DIR}.log"
+    DOC_ID_FILE = F"{FOLDER_DIR}_doc_id.jsonl"
     
     def __init__(self):
         self.DOC_ID_COUNT = 1 # tracks the document id
