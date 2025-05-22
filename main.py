@@ -96,6 +96,7 @@ class InvertedIndex:
             Dict[str, int]: dictionary with token (str) as key and frequency (int) as value
         """
         frequencies = dict()
+        length = len(tokens)
 
         for token in tokens:
             if token in frequencies:
@@ -103,6 +104,9 @@ class InvertedIndex:
             else:
                 frequencies[token] = 1
         
+        for key, value in frequencies.items():
+            frequencies[key] = value/length
+            
         return frequencies
 
     def get_info(self, file_path: str) -> Tuple[str, str, str]:
@@ -125,7 +129,6 @@ class InvertedIndex:
         except Exception as e:
             logging.info(f"Failed to process file {file_path}: {e}")
             return ("", "", "")
-
 
     # Gets the fields of all tokens
     def get_token_fields(self, soup: BeautifulSoup, tokens: Set[str]) -> Dict[str, List[str]]:
