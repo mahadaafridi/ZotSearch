@@ -277,7 +277,6 @@ class InvertedIndex:
         except Exception as e:
             logging.error(f"Error processing document {file_path}: {e}")
 
-    
     # These functions will be for merging and dumping partial index
     def dump_partial_index(self) -> None:
         """
@@ -330,17 +329,6 @@ class InvertedIndex:
                 f.write(json_line + '\n')
         logging.info(f"Saved DOC_ID mapping") 
 
-    """
-    Currently this stores the entire final index in-memory which defeats the purpose of the partial indexes
-    Need to do a multi-way merge. 
-        Open and read all files simultaneously line by line. 
-
-        Since sorted alphabetically we can do a min heap. 
-
-        Grab one token from each file, whichever token is the lowest alpahbetically, merge it with all
-        other instances then add to final index. 
-        
-    """
     def merge_partial_indexes(self) -> None:
         """
         Merges all partial indexes into a final inverted index.

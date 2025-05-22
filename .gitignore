@@ -2,6 +2,9 @@ partial_index
 .DS_Store
 /DEV
 developer.zip
+/DEV_index
+DEV_doc_id.jsonl
+DEV_final.jsonl
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
