@@ -2,6 +2,7 @@ import json
 import math
 import os
 import time
+import mmap
 from typing import List, Dict, Set, Tuple
 from nltk.stem import PorterStemmer
 from collections import defaultdict
@@ -73,17 +74,23 @@ class Search:
             
         try:
             with open(index_file, 'r') as f:
-                while True:
-                    line = f.readline()
-                    if not line:
-                        break
-                        
-                    data = json.loads(line)
-                    if data['token'] == token:
-                        return data['postings']
-                    # If we've passed where the token should be, stop searching
-                    elif data['token'] > token:
-                        break
+                # Load File Content
+                lines = f.readlines()
+
+                # Binary Search for token
+                left, right = 0, len(lines)-1
+                while left <= right:
+                    mid = left + ((right-left)//2)
+                    data = json.loads(lines[mid])
+                    current_token = data['token']
+                    current_postings = data['postings']
+                    
+                    if current_token == token:
+                        return current_postings
+                    elif current_token < token:
+                        left = mid+1
+                    else:
+                        right = mid-1
                         
         except Exception as e:
             print(f"Error looking up token {token}: {e}")
@@ -202,8 +209,8 @@ class Search:
 if __name__ == '__main__':
     # Initialize search with the index directory and doc ID file
     search_engine = Search(
-        index_dir="ANALYST_index",
-        doc_id_file="ANALYST_doc_id.jsonl"
+        index_dir="DEV_index",
+        doc_id_file="DEV_doc_id.jsonl"
     )
     
     print("Welcome to the Search Engine!")
@@ -229,6 +236,11 @@ if __name__ == '__main__':
         else:
             # Limit to top 5 results
             top_results = results[:5]
+            with open('report.txt', 'w') as f:
+                f.write(f"Found {len(results)} results (showing top 5):\n")
+                for i, result in enumerate(top_results, 1):
+                    f.write(f"{i}. {result['url']} (Score: {result['score']:.2f})\n")
+                
             print(f"\nFound {len(results)} results (showing top 5):")
             print(f"Query completed in {elapsed_time:.2f} milliseconds")
             for i, result in enumerate(top_results, 1):
