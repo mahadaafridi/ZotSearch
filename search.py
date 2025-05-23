@@ -213,10 +213,11 @@ if __name__ == '__main__':
         else:
             # Limit to top 5 results
             top_results = results[:5]
-            with open('report.txt', 'w') as f:
-                f.write(f"Found {len(results)} results (showing top 5):\n")
+            with open('report.txt', 'a') as f:
+                f.write(f"Found {len(results)} results for \"{query}\" (showing top 5):\n")
                 for i, result in enumerate(top_results, 1):
                     f.write(f"{i}. {result['url']} (Score: {result['score']:.2f})\n")
+                f.write("\n")
                 
             print(f"\nFound {len(results)} results (showing top 5):")
             print(f"Query completed in {elapsed_time:.2f} milliseconds")
