@@ -183,6 +183,39 @@ class Search:
         results.sort(key=lambda x: x['score'], reverse=True)
         return results
 
+    def run(self) -> None:
+        """Runs the search"""
+        while True:
+            query = input("\nQuery: ").strip()
+            if query.lower() == 'quit':
+                break
+                
+            if not query:
+                print("Please enter a valid query.")
+                continue
+                
+            # Start timing
+            start_time = time.time()
+            results = search_engine.search(query)
+            # Calculate elapsed time in milliseconds
+            elapsed_time = (time.time() - start_time) * 1000
+            
+            if not results:
+                print("No results found.")
+            else:
+                #top 5 results
+                top_results = results[:5]
+                with open('report.txt', 'a') as f:
+                    f.write(f"Found {len(results)} results for \"{query}\" (showing top 5):\n")
+                    for i, result in enumerate(top_results, 1):
+                        f.write(f"{i}. {result['url']} (Score: {result['score']:.2f})\n")
+                    f.write("\n")
+                    
+                print(f"\nFound {len(results)} results (showing top 5):")
+                print(f"Query completed in {elapsed_time:.2f} milliseconds")
+                for i, result in enumerate(top_results, 1):
+                    print(f"{i}. {result['url']} (Score: {result['score']:.2f})")
+
 if __name__ == '__main__':
     # Initialize search with the index directory and doc ID file
     search_engine = Search(
@@ -193,33 +226,4 @@ if __name__ == '__main__':
     print("Welcome to the Search Engine!")
     print("Enter your query (type 'quit' to exit):")
     
-    while True:
-        query = input("\nQuery: ").strip()
-        if query.lower() == 'quit':
-            break
-            
-        if not query:
-            print("Please enter a valid query.")
-            continue
-            
-        # Start timing
-        start_time = time.time()
-        results = search_engine.search(query)
-        # Calculate elapsed time in milliseconds
-        elapsed_time = (time.time() - start_time) * 1000
-        
-        if not results:
-            print("No results found.")
-        else:
-            # Limit to top 5 results
-            top_results = results[:5]
-            with open('report.txt', 'a') as f:
-                f.write(f"Found {len(results)} results for \"{query}\" (showing top 5):\n")
-                for i, result in enumerate(top_results, 1):
-                    f.write(f"{i}. {result['url']} (Score: {result['score']:.2f})\n")
-                f.write("\n")
-                
-            print(f"\nFound {len(results)} results (showing top 5):")
-            print(f"Query completed in {elapsed_time:.2f} milliseconds")
-            for i, result in enumerate(top_results, 1):
-                print(f"{i}. {result['url']} (Score: {result['score']:.2f})") 
+    search_engine.run() 
