@@ -161,6 +161,7 @@ class Search:
         """
         tokens = self.tokenize_query(query)
         matching_docs = self.boolean_and_search(tokens)
+        postings = {token: self._get_token_postings(token) for token in tokens}
         
         results = []
 
@@ -168,14 +169,8 @@ class Search:
             score = 0 # Relevance score for doc
 
             for token in tokens:
-                postings = self._get_token_postings(token)
-
-                # If no postings (for whatever reason) skip
-                if not postings:
-                    continue
-                
                 # Get tfidf score for this token and doc_id
-                for posting in postings:
+                for posting in postings[token]:
                     if posting['docid'] == doc_id:
                         score += posting['tfidf']
                         break # No need to search rest of postings list
