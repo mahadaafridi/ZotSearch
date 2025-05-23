@@ -301,7 +301,6 @@ class InvertedIndex:
 
         self.partial_index_file_count += 1
         self.partial_index.clear()
-        self.near_duplicate.clear() #clear the fingerprints also so it doens't overflow
 
     def check_and_dump(self) -> None:
         """
