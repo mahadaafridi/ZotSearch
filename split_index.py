@@ -1,6 +1,22 @@
 import json
 import os
 from typing import Dict, List
+from math import log
+
+TOTAL_DOCUMENTS = 0
+
+def initialize_total_documents(input_file: str) -> None:
+    """
+    Given an input file containing the corpus of documents, sets the TOTAL_DOCUMENTS global variable to reflect
+    total number of documents in corpus
+    """
+    global TOTAL_DOCUMENTS
+    with open(input_file, 'r') as f:
+        count = 0
+        for line in f:
+            count += 1
+    
+    TOTAL_DOCUMENTS = count
 
 def create_index_directory(base_dir: str) -> str:
     """Create the index directory if it doesn't exist."""
@@ -12,6 +28,30 @@ def create_index_directory(base_dir: str) -> str:
 def get_term_range(token: str) -> str:
     """Get the identifier for a token (e.g., 'a' for tokens starting with a)."""
     return token[0].lower()
+
+def calculate_tfidf(tf: int, df: int, fields: List[str]) -> float:
+    """
+    Calculates the tfidf with field boosting for the given tf and df.
+
+    Args:
+        tf (int): Raw Term Frequency of token
+        df (int): Number of documents token is found in
+    
+    Returns:
+        float: tf-idf score
+    """
+    tf = 1+log(tf)
+    idf = log(TOTAL_DOCUMENTS/(1+df))
+    field_boost = 1
+
+    if 'title' in fields:
+        field_boost *= 2
+    if 'header' in fields:
+        field_boost *= 1.5
+    if 'strong' in fields:
+        field_boost *= 1.3
+
+    return tf * idf * field_boost
 
 def split_index(input_file: str, base_dir: str) -> None:
     """
@@ -31,8 +71,14 @@ def split_index(input_file: str, base_dir: str) -> None:
     # Read and split the index into starting characters a-z, 0-9
     with open(input_file, 'r') as f:
         for line in f:
-            data = json.loads(line)
+            data = json.loads(line) # Get line from jsonl
             token = data['token']
+            df = len(data['postings']) # Get number of documents token is found in
+
+            # Calculate tfidf for each posting
+            for posting in data['postings']:
+                posting['tfidf'] = calculate_tfidf(posting['tf'], df, posting['fields'])
+
             range_id = get_term_range(token)
             
             # Starting character has changed, dump current tokens and postings into separate file
@@ -64,6 +110,7 @@ def split_index(input_file: str, base_dir: str) -> None:
             print(f"Created index file for range {current_id}")
 
 if __name__ == '__main__':
+    initialize_total_documents('DEV_doc_id.jsonl')
     create_index_directory('.')
     # Split the index file
     split_index(

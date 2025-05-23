@@ -103,10 +103,7 @@ class InvertedIndex:
                 frequencies[token] += 1
             else:
                 frequencies[token] = 1
-        
-        for key, value in frequencies.items():
-            frequencies[key] = value/length
-            
+
         return frequencies
 
     def get_info(self, file_path: str) -> Tuple[str, str, str]:

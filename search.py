@@ -121,39 +121,6 @@ class Search:
         tokens = query.lower().split()
         return [self.stemmer.stem(token) for token in tokens]
 
-    def calculate_tfidf(self, doc_id: int, token: str) -> float:
-        """
-        Calculate TF-IDF score for a token in a document.
-        
-        Args:
-            doc_id (int): Document ID
-            token (str): Token to calculate score for
-            
-        Returns:
-            float: TF-IDF score
-        """
-        postings = self._get_token_postings(token)
-        if not postings:
-            return 0.0
-            
-        posting = next((p for p in postings if p['docid'] == doc_id), None)
-        if not posting:
-            return 0.0
-            
-        tf = posting['tf']
-        df = len(postings)
-        idf = math.log(self.total_docs / (1 + df))
-        
-        field_boost = 1.0
-        if 'title' in posting['fields']:
-            field_boost *= 2.0
-        if 'header' in posting['fields']:
-            field_boost *= 1.5
-        if 'strong' in posting['fields']:
-            field_boost *= 1.3
-            
-        return tf * idf * field_boost
-
     def boolean_and_search(self, tokens: List[str]) -> Set[int]:
         """
         Perform boolean AND search for the given tokens.
@@ -196,8 +163,23 @@ class Search:
         matching_docs = self.boolean_and_search(tokens)
         
         results = []
+
         for doc_id in matching_docs:
-            score = sum(self.calculate_tfidf(doc_id, token) for token in tokens)
+            score = 0 # Relevance score for doc
+
+            for token in tokens:
+                postings = self._get_token_postings(token)
+
+                # If no postings (for whatever reason) skip
+                if not postings:
+                    continue
+                
+                # Get tfidf score for this token and doc_id
+                for posting in postings:
+                    if posting['docid'] == doc_id:
+                        score += posting['tfidf']
+                        break # No need to search rest of postings list
+
             results.append({
                 'url': self.doc_id_map[doc_id],
                 'score': score
