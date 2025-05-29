@@ -232,6 +232,26 @@ class Search:
                 for i, result in enumerate(top_results, 1):
                     print(f"{i}. {result['url']} (Score: {result['score']:.2f})")
 
+    def run_queries(self, queries: List[str]) -> None:
+        with open("progress_report.txt", 'w') as f:
+            for query in queries:
+                print(f"\nRunning query: {query}")
+
+                start_time = time.time()
+                results = self.search(query)  
+                elapsed_time = (time.time() - start_time) * 1000 
+
+                top_results = results[:5]
+                f.write(f"Found {len(results)} results for \"{query}\" in {elapsed_time:.2f} milliseconds:\n")
+                for i, result in enumerate(top_results, 1):
+                    f.write(f"{i}. {result['url']} (Score: {result['score']:.2f})\n")
+                f.write("\n")
+
+                #print it also 
+                print(f"Found {len(results)} results (showing top 5):")
+                print(f"Query completed in {elapsed_time:.2f} milliseconds")
+                for i, result in enumerate(top_results, 1):
+                    print(f"{i}. {result['url']} (Score: {result['score']:.2f})")
 if __name__ == '__main__':
     # Initialize search with the index directory and doc ID file
     search_engine = Search(
@@ -242,4 +262,45 @@ if __name__ == '__main__':
     print("Welcome to the Search Engine!")
     print("Enter your query (type 'quit' to exit):")
     
-    search_engine.run() 
+    queries = [
+    "cristina lopes",
+    "machine learning",
+    "ACM",
+    "master of software engineering",
+    "ICS department",
+    "campus map",
+    "donald bren",
+    "UCI",
+    "staff directory",
+    "uci events now",
+    "Dining hall",
+    "research opportunities for undergraduates",
+
+    "artificial intelligence",
+    "machine learning algorithms",
+    "deep learning tutorials",
+    "cybersecurity threats",
+    "network security",
+    "cryptography basics",
+    "algorithms and data structures",
+    "sorting algorithms",
+    "graph algorithms",
+    "complexity analysis",
+    "probability and statistics for CS",
+    "statistical learning",
+    "natural language processing",
+    "computer vision",
+    "reinforcement learning",
+    "AI ethics",
+    "malware detection",
+    "penetration testing",
+    "encryption techniques",
+    "data mining",
+    "big data analytics",
+    "neural networks",
+    "pattern recognition",
+    "statistical inference",
+    "machine learning model evaluation"
+    ]
+    search_engine.run_queries(queries)
+    # search_engine.run() 
