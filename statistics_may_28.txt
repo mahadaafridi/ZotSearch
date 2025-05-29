@@ -1,0 +1,15 @@
+Found 82 results for "cristina lopes": completed in 181.2441349029541
+Found 3900 results for "machine learning": completed in 1597.215175628662
+Found 2989 results for "ACM": completed in 402.8022289276123
+Found 1655 results for "master of software engineering": completed in 7104.876279830933
+Found 3133 results for "ICS department": completed in 3339.2179012298584
+Found 1961 results for "campus map": completed in 792.2573089599609
+Found 3220 results for "donald bren": completed in 1042.3810482025146
+Found 17401 results for "UCI": completed in 9532.253742218018
+Found 1812 results for "staff directory": completed in 1222.8224277496338
+Found 2444 results for "research opportunities for undergraduates": completed in 6229.240417480469
+Found 6 results for "campus safety escort service": completed in 463.6352062225342
+Found 37 results for "student center parking rates": completed in 504.44936752319336
+Found 37 results for "student center parking rates": completed in 482.17201232910156
+
+overall slight imporvments by sorting the tokens by smallest to largest before intersection

@@ -134,18 +134,22 @@ class Search:
         if not tokens:
             return set()
             
-        doc_sets = []
+        #token postings
+        token_postings = []
         for token in tokens:
             postings = self._get_token_postings(token)
-            if postings:
-                doc_ids = {posting['docid'] for posting in postings}
-                doc_sets.append(doc_ids)
-            else:
+            if not postings:
                 return set()
-                
-        result = doc_sets[0]
-        for doc_set in doc_sets[1:]:
-            result = result.intersection(doc_set)
+            doc_ids = {posting['docid'] for posting in postings}
+            token_postings.append((len(doc_ids), doc_ids))
+            
+        #sort the tokens so that it is ordered from smalles to largest
+        token_postings.sort(key=lambda x: x[0])
+        
+        #do intersections by smallest to largest to imporve efficiency 
+        result = token_postings[0][1]
+        for _, doc_ids in token_postings[1:]:
+            result = result.intersection(doc_ids)
             
         return result
 
@@ -206,10 +210,10 @@ class Search:
                 #top 5 results
                 top_results = results[:5]
                 with open('report.txt', 'a') as f:
-                    f.write(f"Found {len(results)} results for \"{query}\" (showing top 5):\n")
-                    for i, result in enumerate(top_results, 1):
-                        f.write(f"{i}. {result['url']} (Score: {result['score']:.2f})\n")
-                    f.write("\n")
+                    f.write(f"Found {len(results)} results for \"{query}\": completed in {elapsed_time}\n")
+                    # for i, result in enumerate(top_results, 1):
+                    #     f.write(f"{i}. {result['url']} (Score: {result['score']:.2f})\n")
+                    # f.write("\n")
                     
                 print(f"\nFound {len(results)} results (showing top 5):")
                 print(f"Query completed in {elapsed_time:.2f} milliseconds")
