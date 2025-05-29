@@ -179,17 +179,26 @@ class Search:
         matching_docs = self.boolean_and_search(postings)
         
         results = []
-
-        print(f'MATCHING DOCS: {len(matching_docs)}')
+        
         for doc_id in matching_docs:
             score = 0 # Relevance score for doc
 
             for token in tokens:
-                # Get tfidf score for this token and doc_id
-                for posting in postings[token]:
-                    if posting['docid'] == doc_id:
-                        score += posting['tfidf']
-                        break # No need to search rest of postings list
+                # Binary search for doc tfidf
+                postings_list = postings[token]
+                left, right = 0, len(postings_list)-1
+
+                while left <= right:
+                    mid = left + ((right-left) // 2)
+                    current_docid = postings_list[mid]['docid']
+
+                    if current_docid == doc_id:
+                        score += postings_list[mid]['tfidf']
+                        break # Found docid no need to continue search
+                    elif current_docid < doc_id:
+                        left = mid+1 # Search right half
+                    else:
+                        right = mid-1 # Search left half
 
             results.append({
                 'url': self.doc_id_map[doc_id],
@@ -198,7 +207,7 @@ class Search:
             
         results.sort(key=lambda x: x['score'], reverse=True)
         return results
-
+    
     def run(self) -> None:
         """Runs the search"""
         while True:
