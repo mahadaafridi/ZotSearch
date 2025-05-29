@@ -121,7 +121,7 @@ class Search:
         tokens = query.lower().split()
         return [self.stemmer.stem(token) for token in tokens]
 
-    def boolean_and_search(self, tokens: List[str]) -> Set[int]:
+    def boolean_and_search(self, postings) -> Set[int]:
         """
         Perform boolean AND search for the given tokens.
         
@@ -131,19 +131,15 @@ class Search:
         Returns:
             Set[int]: Set of document IDs that contain all tokens
         """
-        if not tokens:
+        if not postings:
             return set()
             
         #token postings
         token_postings = []
-        for token in tokens:
-            postings = self._get_token_postings(token)
-            if not postings:
-                return set()
-            doc_ids = {posting['docid'] for posting in postings}
-            token_postings.append((len(doc_ids), doc_ids))
+        doc_ids = {posting['docid'] for posting in postings}
+        token_postings.append((len(doc_ids), doc_ids))
             
-        #sort the tokens so that it is ordered from smalles to largest
+        #sort the tokens so that it is ordered from smallest to largest
         token_postings.sort(key=lambda x: x[0])
         
         #do intersections by smallest to largest to imporve efficiency 
@@ -164,8 +160,8 @@ class Search:
             List[Dict]: List of ranked results with URLs and scores
         """
         tokens = self.tokenize_query(query)
-        matching_docs = self.boolean_and_search(tokens)
         postings = {token: self._get_token_postings(token) for token in tokens}
+        matching_docs = self.boolean_and_search(postings)
         
         results = []
 
