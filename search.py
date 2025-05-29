@@ -7,6 +7,16 @@ from typing import List, Dict, Set, Tuple
 from nltk.stem import PorterStemmer
 from collections import defaultdict
 
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        elapsed_ms = (end - start) * 1000
+        print(f"{func.__name__} took {elapsed_ms:.2f} ms")
+        return result
+    return wrapper
+
 class Search:
     def __init__(self, index_dir: str, doc_id_file: str):
         """
@@ -120,13 +130,14 @@ class Search:
         """
         tokens = query.lower().split()
         return [self.stemmer.stem(token) for token in tokens]
-
-    def boolean_and_search(self, postings) -> Set[int]:
+    
+    @timer
+    def boolean_and_search(self, postings: Dict[str, List[Dict]]) -> Set[int]:
         """
         Perform boolean AND search for the given tokens.
         
         Args:
-            tokens (List[str]): List of tokens to search for
+            postings (Dict[str, List[str]]): List of tokens to search for
             
         Returns:
             Set[int]: Set of document IDs that contain all tokens
@@ -136,19 +147,23 @@ class Search:
             
         #token postings
         token_postings = []
-        doc_ids = {posting['docid'] for posting in postings}
-        token_postings.append((len(doc_ids), doc_ids))
+        for posting in postings.values(): # List[Dict] for All Tokens
+            doc_ids = set()
+            for p in posting: # Dict
+                doc_ids.add(p['docid'])
+            token_postings.append((len(doc_ids), doc_ids))
             
         #sort the tokens so that it is ordered from smallest to largest
         token_postings.sort(key=lambda x: x[0])
         
-        #do intersections by smallest to largest to imporve efficiency 
+        #do intersections by smallest to largest to improve efficiency 
         result = token_postings[0][1]
         for _, doc_ids in token_postings[1:]:
             result = result.intersection(doc_ids)
             
         return result
 
+    @timer
     def search(self, query: str) -> List[Dict]:
         """
         Search for documents matching the query and return ranked results.
@@ -165,6 +180,7 @@ class Search:
         
         results = []
 
+        print(f'MATCHING DOCS: {len(matching_docs)}')
         for doc_id in matching_docs:
             score = 0 # Relevance score for doc
 
@@ -206,10 +222,10 @@ class Search:
                 #top 5 results
                 top_results = results[:5]
                 with open('report.txt', 'a') as f:
-                    f.write(f"Found {len(results)} results for \"{query}\": completed in {elapsed_time}\n")
-                    # for i, result in enumerate(top_results, 1):
-                    #     f.write(f"{i}. {result['url']} (Score: {result['score']:.2f})\n")
-                    # f.write("\n")
+                    f.write(f"Found {len(results)} results for \"{query}\" (showing top 5):\n")
+                    for i, result in enumerate(top_results, 1):
+                        f.write(f"{i}. {result['url']} (Score: {result['score']:.2f})\n")
+                    f.write("\n")
                     
                 print(f"\nFound {len(results)} results (showing top 5):")
                 print(f"Query completed in {elapsed_time:.2f} milliseconds")
