@@ -112,10 +112,10 @@ class IndexSplitter:
 
 if __name__ == '__main__':
     splitter = IndexSplitter()
-    splitter.initialize_total_documents('DEV_doc_id.jsonl')
+    splitter.initialize_total_documents('small_dev_doc_id.jsonl')
     splitter.create_index_directory('.')
     # Split the index file
     splitter.split_index(
-        input_file="DEV_final.jsonl",
+        input_file="small_dev_final.jsonl",
         base_dir="."
     ) 

@@ -26,7 +26,7 @@ def custom_hash(s):
     return hashVal
 
 
-FOLDER_DIR = "DEV/DEV"
+FOLDER_DIR = "small_dev"
 class InvertedIndex:
     # directorys
     PARTIAL_INDEX_DIR = f"{FOLDER_DIR}_partial"

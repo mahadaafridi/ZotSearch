@@ -1,0 +1,629 @@
+{"token": "0", "postings": [{"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "1", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}, {"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 6, "fields": ["header", "body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "100", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "11", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "120", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "128x128", "postings": [{"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "2", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "2000", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "2004", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}]}
+{"token": "2005", "postings": [{"docid": 3, "tf": 3, "fields": ["body"]}]}
+{"token": "2006", "postings": [{"docid": 3, "tf": 3, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "231", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "240", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "25th", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "3", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 6, "fields": ["header", "body"]}]}
+{"token": "33", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "5", "postings": [{"docid": 5, "tf": 4, "fields": ["body"]}]}
+{"token": "6", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "64x64", "postings": [{"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "6pm", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "6th", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "77", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "7pm", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "a", "postings": [{"docid": 1, "tf": 3, "fields": ["header", "body"]}, {"docid": 4, "tf": 10, "fields": ["body"]}, {"docid": 5, "tf": 4, "fields": ["body"]}, {"docid": 6, "tf": 4, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "abdelwah", "postings": [{"docid": 3, "tf": 6, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "about", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "abov", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "abstract", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "academia", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "accord", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "ace", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "advisor", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "ahb", "postings": [{"docid": 6, "tf": 5, "fields": ["header", "body"]}]}
+{"token": "ai", "postings": [{"docid": 1, "tf": 5, "fields": ["header", "body"]}]}
+{"token": "aiatuci", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "alderi", "postings": [{"docid": 2, "tf": 4, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 12, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 7, "fields": ["title", "header", "body"]}]}
+{"token": "alderson", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "alexand", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "all", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}, {"docid": 2, "tf": 2, "fields": ["body"]}, {"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 3, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "allow", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "almuni", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "also", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "amba", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 7, "fields": ["header", "body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "ambigu", "postings": [{"docid": 6, "tf": 3, "fields": ["header", "body"]}]}
+{"token": "ami", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "among", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "an", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "analysi", "postings": [{"docid": 2, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 4, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 7, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 4, "fields": ["title", "header", "body"]}]}
+{"token": "analyt", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "analyz", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "and", "postings": [{"docid": 1, "tf": 14, "fields": ["header", "body"]}, {"docid": 2, "tf": 5, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 8, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 11, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 7, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 10, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 3, "fields": ["title", "header", "body"]}]}
+{"token": "andrew", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "angel", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "ani", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "anthoni", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "applic", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 6, "fields": ["header", "body"]}]}
+{"token": "approxim", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "architectur", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "are", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 3, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "area", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "arrow", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "artifici", "postings": [{"docid": 1, "tf": 5, "fields": ["title", "header", "body"]}]}
+{"token": "as", "postings": [{"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 3, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "aspect", "postings": [{"docid": 5, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "assign", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "at", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}, {"docid": 2, "tf": 3, "fields": ["body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "attend", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "automat", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "automata", "postings": [{"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "autopilot", "postings": [{"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "avail", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "avion", "postings": [{"docid": 5, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "avoid", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "awar", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "background", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "base", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "bathen", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "be", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 4, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "been", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "behind", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "below", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "berkeley", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "better", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "bi", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "bibtex", "postings": [{"docid": 3, "tf": 6, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "biolog", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "boe", "postings": [{"docid": 5, "tf": 2, "fields": ["header", "body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "bold", "postings": [{"docid": 5, "tf": 5, "fields": ["header", "body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "both", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "bren", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "brett", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "buffer", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "bug", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "built", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "by", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 4, "fields": ["body"]}, {"docid": 5, "tf": 3, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "c", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "california", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "camera", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "can", "postings": [{"docid": 2, "tf": 2, "fields": ["body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "case", "postings": [{"docid": 5, "tf": 3, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "catch", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "cec", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "center", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "chair", "postings": [{"docid": 1, "tf": 3, "fields": ["body"]}]}
+{"token": "chang", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "channel", "postings": [{"docid": 5, "tf": 5, "fields": ["body"]}]}
+{"token": "check", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "checker", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "chip", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "cite", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "citizen", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "claim", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "classif", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "click", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "clock", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "collabor", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}]}
+{"token": "com", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "comment", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "common", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "commun", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "comparison", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "complex", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "compon", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 5, "fields": ["body"]}]}
+{"token": "compos", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "composit", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "compress", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "comput", "postings": [{"docid": 1, "tf": 3, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "concret", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "condit", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "confer", "postings": [{"docid": 3, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "configur", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "connect", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "consit", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "constraint", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "contact", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "contain", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "content", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "contradict", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "copyright", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 4, "fields": ["header", "body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "corba", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "corona", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "corpor", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "correct", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 11, "fields": ["body"]}]}
+{"token": "correspond", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "could", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "couldn", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "cover", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "cpu", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "creat", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "cultiv", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "curiou", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "cycl", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "d", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "data", "postings": [{"docid": 1, "tf": 3, "fields": ["body"]}]}
+{"token": "date", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "day", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "deadlock", "postings": [{"docid": 6, "tf": 7, "fields": ["body"]}]}
+{"token": "decemb", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "dedic", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "defin", "postings": [{"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "delay", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "demonstr", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "deploy", "postings": [{"docid": 5, "tf": 4, "fields": ["body"]}]}
+{"token": "describ", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "descript", "postings": [{"docid": 2, "tf": 1, "fields": ["header", "body"]}, {"docid": 4, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "design", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 6, "tf": 5, "fields": ["body"]}]}
+{"token": "detail", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "develop", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}, {"docid": 4, "tf": 3, "fields": ["header", "body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "differ", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "digit", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "directli", "postings": [{"docid": 3, "tf": 1, "fields": ["header", "body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "disallow", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "disciplin", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "display", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "distribut", "postings": [{"docid": 2, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 8, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 6, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 4, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 2, "fields": ["title", "header", "body"]}]}
+{"token": "do", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "doc", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}]}
+{"token": "doe", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "domain", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "don", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "donald", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "dot", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "dougla", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "download", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 6, "fields": ["header", "body"]}]}
+{"token": "draft", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "dre", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 5, "fields": ["body"]}, {"docid": 5, "tf": 3, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "dream", "postings": [{"docid": 2, "tf": 3, "fields": ["body"]}, {"docid": 3, "tf": 4, "fields": ["header", "body"]}, {"docid": 4, "tf": 4, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 3, "fields": ["body"]}]}
+{"token": "driven", "postings": [{"docid": 4, "tf": 2, "fields": ["header", "body"]}, {"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "dsml", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "due", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "dutt", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 3, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "each", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "easili", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "edu", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "eduardo", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "effici", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "element", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "elliot", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "elsay", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "email", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "embed", "postings": [{"docid": 2, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 8, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 6, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 4, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 2, "fields": ["title", "header", "body"]}]}
+{"token": "emerg", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "emsoft", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "enforc", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "ensur", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "environ", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "espcial", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "evalu", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 9, "fields": ["header", "body"]}]}
+{"token": "even", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "event", "postings": [{"docid": 1, "tf": 3, "fields": ["header", "body"]}, {"docid": 5, "tf": 6, "fields": ["body"]}]}
+{"token": "exampl", "postings": [{"docid": 5, "tf": 1, "fields": ["header", "body"]}, {"docid": 6, "tf": 4, "fields": ["header", "body"]}, {"docid": 7, "tf": 3, "fields": ["body"]}]}
+{"token": "except", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "execut", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "explain", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "explicitli", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "explos", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "fake", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "feedback", "postings": [{"docid": 7, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "feel", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "figur", "postings": [{"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 8, "fields": ["header", "body"]}]}
+{"token": "final", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "find", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "finit", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "five", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "focus", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "follow", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 4, "fields": ["body"]}]}
+{"token": "for", "postings": [{"docid": 1, "tf": 4, "fields": ["body"]}, {"docid": 2, "tf": 4, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 4, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 10, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 7, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 2, "fields": ["title", "header", "body"]}]}
+{"token": "forg", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "formal", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 4, "fields": ["header", "body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "framework", "postings": [{"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "free", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "from", "postings": [{"docid": 1, "tf": 3, "fields": ["body"]}, {"docid": 2, "tf": 2, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "function", "postings": [{"docid": 6, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "further", "postings": [{"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "fusion", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "futur", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "gabe", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "gabor", "postings": [{"docid": 3, "tf": 10, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "galkowski", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "gener", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["header", "body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "get", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}, {"docid": 5, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "gmail", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "gme", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 3, "fields": ["body"]}]}
+{"token": "got", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "govindaraju", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "graph", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "graphic", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "group", "postings": [{"docid": 2, "tf": 3, "fields": ["body"]}]}
+{"token": "guard", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "guerrero", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "guy", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "ha", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "hack", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "hackathon", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "happen", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "hard", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "have", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 5, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "he", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "helicopt", "postings": [{"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "here", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}]}
+{"token": "hero", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "hi", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "historian", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "hold", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "home", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "host", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "hous", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "how", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "howev", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "hresp", "postings": [{"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "hsplitx", "postings": [{"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "http", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "i", "postings": [{"docid": 1, "tf": 3, "fields": ["body"]}]}
+{"token": "ic", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "ieee", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "if", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "ihler", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "illustr", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "imag", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "implement", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "in", "postings": [{"docid": 1, "tf": 3, "fields": ["header", "body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 5, "tf": 10, "fields": ["body"]}, {"docid": 6, "tf": 7, "fields": ["header", "body"]}]}
+{"token": "includ", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "incorrect", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "industri", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "infer", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "infom", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "inform", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "intellig", "postings": [{"docid": 1, "tf": 5, "fields": ["title", "header", "body"]}]}
+{"token": "interest", "postings": [{"docid": 5, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "intern", "postings": [{"docid": 3, "tf": 3, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "introduct", "postings": [{"docid": 4, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "invit", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "irresolv", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "irvin", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "is", "postings": [{"docid": 1, "tf": 4, "fields": ["header", "body"]}, {"docid": 2, "tf": 2, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 7, "fields": ["body"]}, {"docid": 5, "tf": 8, "fields": ["body"]}, {"docid": 6, "tf": 6, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "isi", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "issu", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "it", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "itr", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "iz", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "jano", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "jason", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "jaykay", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}]}
+{"token": "journal", "postings": [{"docid": 3, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "jpeg", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "juli", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "kahn", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "karsai", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}]}
+{"token": "kash", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "key", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "know", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "kumar", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "laird", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "languag", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 7, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 4, "fields": ["title", "header", "body"]}]}
+{"token": "larg", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "later", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "latest", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "lead", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "learn", "postings": [{"docid": 1, "tf": 8, "fields": ["header", "body"]}]}
+{"token": "leav", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "left", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "like", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "link", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 2, "fields": ["header", "body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "lisbon", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "list", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "local", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "lui", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "luu", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "machin", "postings": [{"docid": 1, "tf": 6, "fields": ["header", "body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "madhumitha", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "madl", "postings": [{"docid": 3, "tf": 8, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "mailman", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "maintain", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "market", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "master", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 14, "fields": ["body"]}]}
+{"token": "materi", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "mathew", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "may", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "mdd", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "me", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "measur", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "meet", "postings": [{"docid": 1, "tf": 5, "fields": ["header", "body"]}]}
+{"token": "mention", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "mentor", "postings": [{"docid": 1, "tf": 8, "fields": ["body"]}]}
+{"token": "meta", "postings": [{"docid": 4, "tf": 4, "fields": ["body"]}]}
+{"token": "method", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "michael", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "middlewar", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "mine", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "model", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 8, "fields": ["body"]}, {"docid": 4, "tf": 14, "fields": ["header", "body"]}, {"docid": 5, "tf": 8, "fields": ["header", "body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}, {"docid": 7, "tf": 4, "fields": ["body"]}]}
+{"token": "monday", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "monish", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "more", "postings": [{"docid": 5, "tf": 3, "fields": ["body"]}]}
+{"token": "motiv", "postings": [{"docid": 4, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "mpsoc", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "multiprocessor", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "my", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "natur", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "nav", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "navig", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "necessarili", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "need", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "net", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "network", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "news", "postings": [{"docid": 4, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "nikil", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 3, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "non", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "nonprofit", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "nor", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "not", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 5, "fields": ["body"]}]}
+{"token": "novemb", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "number", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "nusmv", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "of", "postings": [{"docid": 1, "tf": 11, "fields": ["header", "body"]}, {"docid": 2, "tf": 3, "fields": ["body"]}, {"docid": 3, "tf": 9, "fields": ["body"]}, {"docid": 4, "tf": 14, "fields": ["body"]}, {"docid": 5, "tf": 8, "fields": ["header", "body"]}, {"docid": 6, "tf": 8, "fields": ["body"]}]}
+{"token": "often", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "omkar", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "on", "postings": [{"docid": 1, "tf": 5, "fields": ["header", "body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 4, "tf": 4, "fields": ["body"]}, {"docid": 5, "tf": 9, "fields": ["body"]}, {"docid": 6, "tf": 6, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "one", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "onli", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "open", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "opencv", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "or", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "organ", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "origin", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}]}
+{"token": "other", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "our", "postings": [{"docid": 1, "tf": 6, "fields": ["header", "body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "out", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "output", "postings": [{"docid": 6, "tf": 8, "fields": ["body"]}]}
+{"token": "over", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "overcom", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "own", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "page", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "pallet", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "paper", "postings": [{"docid": 3, "tf": 3, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "paradigm", "postings": [{"docid": 4, "tf": 2, "fields": ["body"]}]}
+{"token": "part", "postings": [{"docid": 4, "tf": 2, "fields": ["body"]}]}
+{"token": "pasricha", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "past", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "pathak", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "pattern", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "perform", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 9, "fields": ["header", "body"]}]}
+{"token": "person", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "piec", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "pixel", "postings": [{"docid": 6, "tf": 6, "fields": ["body"]}]}
+{"token": "plan", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "platform", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "pleas", "postings": [{"docid": 7, "tf": 3, "fields": ["body"]}]}
+{"token": "pointer", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}]}
+{"token": "polici", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "pooja", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "portug", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "poster", "postings": [{"docid": 3, "tf": 3, "fields": ["header", "body"]}]}
+{"token": "power", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "pp", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "preemptiv", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "present", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 2, "fields": ["body"]}]}
+{"token": "presid", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "problem", "postings": [{"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "proceed", "postings": [{"docid": 3, "tf": 3, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "process", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "processor", "postings": [{"docid": 5, "tf": 3, "fields": ["body"]}]}
+{"token": "profession", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "professor", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "profil", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "project", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "promot", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "prone", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "properti", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "propos", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "protocol", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "provid", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 5, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "pscb", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "pt", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "public", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 3, "fields": ["header", "body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "publish", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "q", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "qiang", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "qo", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "question", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "ramadoss", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "random", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "rate", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "rather", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "re", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "real", "postings": [{"docid": 2, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 11, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 6, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 7, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 2, "fields": ["title", "header", "body"]}]}
+{"token": "recent", "postings": [{"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "red", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "refer", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "regard", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "relat", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["header", "body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "releas", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "reli", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "remot", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "report", "postings": [{"docid": 3, "tf": 3, "fields": ["header", "body"]}]}
+{"token": "repres", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "request", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "research", "postings": [{"docid": 2, "tf": 2, "fields": ["body"]}]}
+{"token": "reserv", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "resolv", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "respect", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "respons", "postings": [{"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "result", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 5, "fields": ["body"]}]}
+{"token": "retri", "postings": [{"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "reusabl", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "review", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "right", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "run", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "s", "postings": [{"docid": 5, "tf": 3, "fields": ["body"]}]}
+{"token": "safe", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "same", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "samo", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "satisfi", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "satyam", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "scalabl", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "scale", "postings": [{"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "schedul", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 6, "fields": ["body"]}]}
+{"token": "schmidt", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "school", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "scienc", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "secretari", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "section", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "see", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "seen", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "semant", "postings": [{"docid": 4, "tf": 4, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "seminar", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "sensor", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "serv", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}]}
+{"token": "servic", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "session", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "sever", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "shape", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "sherif", "postings": [{"docid": 3, "tf": 6, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "shift", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "shivan", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "show", "postings": [{"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["body"]}, {"docid": 6, "tf": 4, "fields": ["body"]}]}
+{"token": "shown", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 5, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "simpl", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "simul", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "simultan", "postings": [{"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "sinc", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "situat", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "slave", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "small", "postings": [{"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "smv", "postings": [{"docid": 6, "tf": 8, "fields": ["body"]}]}
+{"token": "solut", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "some", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}]}
+{"token": "sorri", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "sourc", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 8, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "sourceforg", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "space", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "spam", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "special", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "specif", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 6, "tf": 5, "fields": ["header", "body"]}]}
+{"token": "specifi", "postings": [{"docid": 4, "tf": 4, "fields": ["body"]}]}
+{"token": "state", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 4, "fields": ["body"]}]}
+{"token": "statist", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "still", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "stroke", "postings": [{"docid": 5, "tf": 5, "fields": ["header", "body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "student", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "studi", "postings": [{"docid": 5, "tf": 2, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "style", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "stylegan", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "submiss", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "such", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "sudeep", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "supervis", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}]}
+{"token": "support", "postings": [{"docid": 4, "tf": 2, "fields": ["body"]}]}
+{"token": "symposium", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "syntax", "postings": [{"docid": 4, "tf": 2, "fields": ["body"]}]}
+{"token": "system", "postings": [{"docid": 2, "tf": 5, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 11, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 8, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 10, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 6, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 3, "fields": ["title", "header", "body"]}]}
+{"token": "szemethi", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "sztipanovit", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "t", "postings": [{"docid": 1, "tf": 3, "fields": ["body"]}]}
+{"token": "tandon", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "task", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "team", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "technic", "postings": [{"docid": 3, "tf": 3, "fields": ["header", "body"]}]}
+{"token": "techniqu", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "technolog", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "textual", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "than", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "thank", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "that", "postings": [{"docid": 1, "tf": 2, "fields": ["header", "body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 7, "fields": ["body"]}]}
+{"token": "the", "postings": [{"docid": 1, "tf": 15, "fields": ["header", "body"]}, {"docid": 2, "tf": 12, "fields": ["body"]}, {"docid": 3, "tf": 9, "fields": ["body"]}, {"docid": 4, "tf": 28, "fields": ["body"]}, {"docid": 5, "tf": 34, "fields": ["header", "body"]}, {"docid": 6, "tf": 37, "fields": ["header", "body"]}, {"docid": 7, "tf": 11, "fields": ["body"]}]}
+{"token": "their", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "themefish", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "themselv", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "theoret", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "therefor", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "these", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "they", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "thi", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 5, "tf": 4, "fields": ["body"]}, {"docid": 6, "tf": 6, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "those", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "though", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "three", "postings": [{"docid": 6, "tf": 10, "fields": ["body"]}]}
+{"token": "through", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "tile", "postings": [{"docid": 6, "tf": 6, "fields": ["body"]}]}
+{"token": "time", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}, {"docid": 2, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 11, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 8, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 9, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 2, "fields": ["title", "header", "body"]}]}
+{"token": "timer", "postings": [{"docid": 5, "tf": 4, "fields": ["body"]}]}
+{"token": "tini", "postings": [{"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "tivadar", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "to", "postings": [{"docid": 1, "tf": 3, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["header", "body"]}, {"docid": 4, "tf": 9, "fields": ["body"]}, {"docid": 5, "tf": 9, "fields": ["body"]}, {"docid": 6, "tf": 10, "fields": ["body"]}, {"docid": 7, "tf": 4, "fields": ["body"]}]}
+{"token": "togeth", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "toggl", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "too", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "tool", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "toolset", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "touch", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}]}
+{"token": "town", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "transfer", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "transform", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "treasur", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "tri", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "tutori", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "two", "postings": [{"docid": 6, "tf": 4, "fields": ["body"]}]}
+{"token": "uc", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "uci", "postings": [{"docid": 1, "tf": 6, "fields": ["title", "header", "body"]}, {"docid": 2, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 3, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 4, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 5, "tf": 3, "fields": ["title", "header", "body"]}, {"docid": 6, "tf": 2, "fields": ["title", "header", "body"]}, {"docid": 7, "tf": 3, "fields": ["title", "header", "body"]}]}
+{"token": "uddeshya", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "under", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}]}
+{"token": "uniqu", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "univers", "postings": [{"docid": 1, "tf": 1, "fields": ["header", "body"]}, {"docid": 2, "tf": 2, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "unmask", "postings": [{"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "up", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "updat", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "upon", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "uppaal", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "us", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "use", "postings": [{"docid": 2, "tf": 2, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 6, "fields": ["body"]}, {"docid": 5, "tf": 2, "fields": ["body"]}, {"docid": 6, "tf": 14, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "v1", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}]}
+{"token": "vanderbilt", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "variabl", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "verif", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 3, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["header", "body"]}, {"docid": 6, "tf": 1, "fields": ["header", "body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "verifi", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "verimag", "postings": [{"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "version", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "via", "postings": [{"docid": 3, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "vice", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "video", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "vipani", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "vision", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "visit", "postings": [{"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "visual", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}]}
+{"token": "volum", "postings": [{"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "wang", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "way", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "we", "postings": [{"docid": 1, "tf": 4, "fields": ["header", "body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 2, "fields": ["body"]}, {"docid": 5, "tf": 4, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "web", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "websit", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}, {"docid": 2, "tf": 2, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 3, "fields": ["body"]}]}
+{"token": "weekli", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "well", "postings": [{"docid": 6, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "were", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 3, "fields": ["body"]}]}
+{"token": "what", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "when", "postings": [{"docid": 5, "tf": 1, "fields": ["body"]}]}
+{"token": "which", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 3, "fields": ["body"]}]}
+{"token": "who", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "wire", "postings": [{"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "with", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 3, "tf": 1, "fields": ["body"]}, {"docid": 4, "tf": 3, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "work", "postings": [{"docid": 1, "tf": 3, "fields": ["body"]}, {"docid": 6, "tf": 2, "fields": ["body"]}]}
+{"token": "workshop", "postings": [{"docid": 1, "tf": 7, "fields": ["header", "body"]}, {"docid": 3, "tf": 2, "fields": ["header", "body"]}]}
+{"token": "world", "postings": [{"docid": 1, "tf": 2, "fields": ["body"]}]}
+{"token": "worri", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "www", "postings": [{"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "year", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "you", "postings": [{"docid": 1, "tf": 3, "fields": ["body"]}, {"docid": 2, "tf": 1, "fields": ["body"]}, {"docid": 5, "tf": 1, "fields": ["body"]}, {"docid": 7, "tf": 2, "fields": ["body"]}]}
+{"token": "your", "postings": [{"docid": 7, "tf": 1, "fields": ["body"]}]}
+{"token": "youtub", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "zhang", "postings": [{"docid": 1, "tf": 1, "fields": ["body"]}]}
+{"token": "zhu", "postings": [{"docid": 4, "tf": 1, "fields": ["body"]}, {"docid": 6, "tf": 1, "fields": ["body"]}]}
+{"token": "zip", "postings": [{"docid": 7, "tf": 2, "fields": ["body"]}]}
