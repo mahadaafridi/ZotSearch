@@ -33,7 +33,7 @@
         setLoading(true);
         try {
           const startTime = performance.now();
-          const response = await fetch(`http://localhost:5000/search?query=${encodeURIComponent(query)}`);
+          const response = await fetch(`/search?query=${encodeURIComponent(query)}`);
           if (!response.ok) {
             const errorData = await response.json();
             throw new Error(errorData.error || "Search failed");
