@@ -5,6 +5,8 @@ developer.zip
 /DEV_index
 DEV_doc_id.jsonl
 DEV_final.jsonl
+/__MACOSX
+/__pycache__
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
