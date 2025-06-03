@@ -202,6 +202,7 @@ class Search:
         matching_docs = self.boolean_and_search(postings)
         
         results = []
+        visited_urls = set()
         
         for doc_id in matching_docs:
             score = 0 # Relevance score for doc
@@ -223,8 +224,14 @@ class Search:
                     else:
                         right = mid-1 # Search left half
 
+            url = self.doc_id_map[doc_id]
+            if url in visited_urls:
+                continue
+            else:
+                visited_urls.add(url)
+            
             results.append({
-                'url': self.doc_id_map[doc_id],
+                'url': url,
                 'score': score
             })
             
