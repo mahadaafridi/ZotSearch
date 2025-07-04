@@ -1,7 +1,0 @@
-Submit a zip file containing all the programs you wrote for this project as well as a document with your test queries 
-(no need to report the results). Comment on which queries started by doing poorly (i.e. giving you poor results) and
-explain what you did in your search engine to make them perform better.
-
-
-
-
